@@ -204,6 +204,9 @@ export function Footer() {
           <p>
             © {new Date().getFullYear()} FAANA Advocacy. {t("rights")}
           </p>
+          <p className="mt-2 text-sm text-muted-foreground/70">
+            Developed by Golden Age Technology P.L.C
+          </p>
         </div>
       </div>
     </footer>

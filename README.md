@@ -53,23 +53,26 @@ src/
 
 ### Prerequisites
 
-- Node.js 18+ 
+- Node.js 18+
 - pnpm (recommended) or npm/yarn
 
 ### Installation
 
 1. Clone the repository:
+
 ```bash
 git clone <repository-url>
 cd faana-web
 ```
 
 2. Install dependencies:
+
 ```bash
 pnpm install
 ```
 
 3. Run the development server:
+
 ```bash
 pnpm dev
 ```
@@ -87,6 +90,7 @@ pnpm dev
 ## 🌐 Internationalization
 
 The website supports three languages:
+
 - English (en) - Default
 - Amharic (am) - አማርኛ
 - Oromo (or) - Afaan Oromoo
@@ -121,6 +125,7 @@ The project uses Tailwind CSS 4 with a custom design system. Component variants 
 ### Other Platforms
 
 The application can be deployed to any platform that supports Next.js:
+
 - Netlify
 - AWS Amplify
 - Railway
@@ -133,6 +138,7 @@ This project is private and proprietary to Faana Advocacy.
 ## 🤝 Contributing
 
 For internal development:
+
 1. Create a feature branch
 2. Make your changes
 3. Test thoroughly

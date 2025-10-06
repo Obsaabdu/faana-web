@@ -724,7 +724,7 @@ export default function Home() {
         />
 
         {/* CTA Section */}
-        <section className="py-20 bg-primary text-primary-foreground relative overflow-hidden">
+        <section className="py-20 bg-primary/20 dark:bg-primary/80 text-primary-foreground relative overflow-hidden">
           <BackgroundShapes variant="justice" />
           {/* Background Pattern */}
           <div className="absolute inset-0 opacity-10">
