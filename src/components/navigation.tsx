@@ -8,6 +8,7 @@ import {
   FileText,
   Heart,
   Home,
+  ImageIcon,
   Lightbulb,
   Mail,
   Menu,
@@ -29,6 +30,8 @@ export function Navigation() {
   const [scrolled, setScrolled] = useState(false);
   const [practiceAreasOpen, setPracticeAreasOpen] = useState(false);
   const [blogsNewsOpen, setBlogsNewsOpen] = useState(false);
+  const [mobilePracticeAreasOpen, setMobilePracticeAreasOpen] = useState(false);
+  const [mobileBlogsNewsOpen, setMobileBlogsNewsOpen] = useState(false);
   const practiceAreasTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const blogsNewsTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const pathname = usePathname();
@@ -128,9 +131,9 @@ export function Navigation() {
                   alt="FAANA Law Firm"
                   width={40}
                   height={40}
-                  className="h-10 w-auto transition-all duration-300 group-hover:rotate-3"
+                  className="h-10 w-auto transition-all duration-300 group-hover:rotate-3 drop-shadow-lg dark:drop-shadow-primary dark:shadow-primary"
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded-full blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded-full blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 dark:opacity-30 dark:group-hover:opacity-60" />
               </div>
               <span className="text-xl font-bold bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent transition-all duration-300 group-hover:from-primary group-hover:to-accent">
                 FAANA
@@ -500,7 +503,13 @@ export function Navigation() {
               ? "max-h-screen opacity-100 py-4 bg-background/95 backdrop-blur-xl"
               : "max-h-0 opacity-0 py-0"
           }`}>
-          <div className="space-y-1">
+          <div className="space-y-1 max-h-[80vh] overflow-y-auto">
+            {/* Mobile Controls - Top */}
+            <div className="flex items-center justify-right gap-3 px-4 py-3 border-b border-border/50 mb-4">
+              <ModeToggle />
+              <LanguageSwitcher />
+            </div>
+
             <Link
               href="/"
               className={`block px-4 py-3 text-sm font-medium transition-all duration-300 hover:text-primary hover:bg-gradient-to-r hover:from-primary/10 hover:to-accent/10 rounded-lg ${
@@ -521,219 +530,266 @@ export function Navigation() {
               onClick={() => setMobileMenuOpen(false)}>
               {t("about")}
             </Link>
-            <div className="px-4 py-3">
-              <div className="flex items-center gap-2 mb-4">
-                <div className="flex items-center justify-center w-6 h-6 rounded-md bg-gradient-to-r from-primary/20 to-accent/20">
-                  <Scale className="w-3 h-3 text-primary" />
+            <button
+              type="button"
+              onClick={() =>
+                setMobilePracticeAreasOpen(!mobilePracticeAreasOpen)
+              }
+              className="flex items-center gap-3 w-full text-left px-4 py-3 rounded-lg transition-all duration-300 hover:bg-gradient-to-r hover:from-primary/10 hover:to-accent/10 hover:text-primary mb-4">
+              <span className="text-sm font-medium">{t("practiceAreas")}</span>
+              <ChevronDown
+                className={`w-4 h-4 transition-transform duration-300 ml-auto ${
+                  mobilePracticeAreasOpen ? "rotate-180 text-primary" : ""
+                }`}
+              />
+            </button>
+            <div
+              className={`overflow-hidden transition-all duration-300 ${
+                mobilePracticeAreasOpen
+                  ? "max-h-[500px] opacity-100"
+                  : "max-h-0 opacity-0"
+              }`}>
+              {mobilePracticeAreasOpen && (
+                <div className="space-y-2">
+                  <Link
+                    href="/practice-areas"
+                    className={`flex items-start gap-3 p-3 rounded-lg transition-all duration-300 group border hover:border-primary ${
+                      isActive("/practice-areas") &&
+                      !pathname.includes("/practice-areas/")
+                        ? "border-primary/30 bg-primary/5"
+                        : "border-border/30"
+                    }`}
+                    onClick={() => setMobileMenuOpen(false)}>
+                    <div className="flex-shrink-0 p-1.5 rounded-md bg-primary/10 group-hover:scale-110 transition-all duration-300">
+                      <FileText className="w-4 h-4 text-primary group-hover:text-primary" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <h3 className="font-semibold text-xs mb-1 text-foreground group-hover:text-primary transition-colors duration-300">
+                        {t("allPracticeAreas")}
+                      </h3>
+                      <p className="text-xs text-muted-foreground leading-tight">
+                        Comprehensive legal services
+                      </p>
+                    </div>
+                  </Link>
+
+                  <Link
+                    href="/practice-areas/corporate-law"
+                    className={`flex items-start gap-3 p-3 rounded-lg transition-all duration-300 group border hover:border-primary ${
+                      isActive("/practice-areas/corporate-law")
+                        ? "border-primary/30 bg-primary/5"
+                        : "border-border/30"
+                    }`}
+                    onClick={() => setMobileMenuOpen(false)}>
+                    <div className="flex-shrink-0 p-1.5 rounded-md bg-primary/10 group-hover:scale-110 transition-all duration-300">
+                      <Building2 className="w-4 h-4 text-primary group-hover:text-primary" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <h3 className="font-semibold text-xs mb-1 text-foreground group-hover:text-primary transition-colors duration-300">
+                        {t("corporateLaw")}
+                      </h3>
+                      <p className="text-xs text-muted-foreground leading-tight">
+                        Business formation & contracts
+                      </p>
+                    </div>
+                  </Link>
+
+                  <Link
+                    href="/practice-areas/litigation"
+                    className={`flex items-start gap-3 p-3 rounded-lg transition-all duration-300 group border hover:border-primary ${
+                      isActive("/practice-areas/litigation")
+                        ? "border-primary/30 bg-primary/5"
+                        : "border-border/30"
+                    }`}
+                    onClick={() => setMobileMenuOpen(false)}>
+                    <div className="flex-shrink-0 p-1.5 rounded-md bg-primary/10 group-hover:scale-110 transition-all duration-300">
+                      <Scale className="w-4 h-4 text-primary group-hover:text-primary" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <h3 className="font-semibold text-xs mb-1 text-foreground group-hover:text-primary transition-colors duration-300">
+                        {t("litigation")}
+                      </h3>
+                      <p className="text-xs text-muted-foreground leading-tight">
+                        Dispute resolution
+                      </p>
+                    </div>
+                  </Link>
+
+                  <Link
+                    href="/practice-areas/intellectual-property"
+                    className={`flex items-start gap-3 p-3 rounded-lg transition-all duration-300 group border hover:border-primary ${
+                      isActive("/practice-areas/intellectual-property")
+                        ? "border-primary/30 bg-primary/5"
+                        : "border-border/30"
+                    }`}
+                    onClick={() => setMobileMenuOpen(false)}>
+                    <div className="flex-shrink-0 p-1.5 rounded-md bg-primary/10 group-hover:scale-110 transition-all duration-300">
+                      <Lightbulb className="w-4 h-4 text-primary group-hover:text-primary" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <h3 className="font-semibold text-xs mb-1 text-foreground group-hover:text-primary transition-colors duration-300">
+                        {t("intellectualProperty")}
+                      </h3>
+                      <p className="text-xs text-muted-foreground leading-tight">
+                        Patents & trademarks
+                      </p>
+                    </div>
+                  </Link>
+
+                  <Link
+                    href="/practice-areas/employment-law"
+                    className={`flex items-start gap-3 p-3 rounded-lg transition-all duration-300 group border hover:border-primary ${
+                      isActive("/practice-areas/employment-law")
+                        ? "border-primary/30 bg-primary/5"
+                        : "border-border/30"
+                    }`}
+                    onClick={() => setMobileMenuOpen(false)}>
+                    <div className="flex-shrink-0 p-1.5 rounded-md bg-primary/10 group-hover:scale-110 transition-all duration-300">
+                      <Briefcase className="w-4 h-4 text-primary group-hover:text-primary" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <h3 className="font-semibold text-xs mb-1 text-foreground group-hover:text-primary transition-colors duration-300">
+                        {t("employmentLaw")}
+                      </h3>
+                      <p className="text-xs text-muted-foreground leading-tight">
+                        Workplace rights
+                      </p>
+                    </div>
+                  </Link>
+
+                  <Link
+                    href="/practice-areas/real-estate"
+                    className={`flex items-start gap-3 p-3 rounded-lg transition-all duration-300 group border hover:border-primary ${
+                      isActive("/practice-areas/real-estate")
+                        ? "border-primary/30 bg-primary/5"
+                        : "border-border/30"
+                    }`}
+                    onClick={() => setMobileMenuOpen(false)}>
+                    <div className="flex-shrink-0 p-1.5 rounded-md bg-primary/10 group-hover:scale-110 transition-all duration-300">
+                      <Home className="w-4 h-4 text-primary group-hover:text-primary" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <h3 className="font-semibold text-xs mb-1 text-foreground group-hover:text-primary transition-colors duration-300">
+                        {t("realEstate")}
+                      </h3>
+                      <p className="text-xs text-muted-foreground leading-tight">
+                        Property transactions
+                      </p>
+                    </div>
+                  </Link>
+
+                  <Link
+                    href="/practice-areas/family-law"
+                    className={`flex items-start gap-3 p-3 rounded-lg transition-all duration-300 group border hover:border-primary ${
+                      isActive("/practice-areas/family-law")
+                        ? "border-primary/30 bg-primary/5"
+                        : "border-border/30"
+                    }`}
+                    onClick={() => setMobileMenuOpen(false)}>
+                    <div className="flex-shrink-0 p-1.5 rounded-md bg-primary/10 group-hover:scale-110 transition-all duration-300">
+                      <Heart className="w-4 h-4 text-primary group-hover:text-primary" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <h3 className="font-semibold text-xs mb-1 text-foreground group-hover:text-primary transition-colors duration-300">
+                        {t("familyLaw")}
+                      </h3>
+                      <p className="text-xs text-muted-foreground leading-tight">
+                        Divorce & custody
+                      </p>
+                    </div>
+                  </Link>
                 </div>
-                <span className="text-sm font-semibold text-primary">
-                  {t("practiceAreas")}
-                </span>
-              </div>
-              <div className="space-y-2">
-                <Link
-                  href="/practice-areas"
-                  className={`flex items-start gap-3 p-3 rounded-lg transition-all duration-300 group border hover:border-primary ${
-                    isActive("/practice-areas") &&
-                    !pathname.includes("/practice-areas/")
-                      ? "border-primary/30 bg-primary/5"
-                      : "border-border/30"
-                  }`}
-                  onClick={() => setMobileMenuOpen(false)}>
-                  <div className="flex-shrink-0 p-1.5 rounded-md bg-primary/10 group-hover:scale-110 transition-all duration-300">
-                    <FileText className="w-4 h-4 text-primary group-hover:text-primary" />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <h3 className="font-semibold text-xs mb-1 text-foreground group-hover:text-primary transition-colors duration-300">
-                      {t("allPracticeAreas")}
-                    </h3>
-                    <p className="text-xs text-muted-foreground leading-tight">
-                      Comprehensive legal services
-                    </p>
-                  </div>
-                </Link>
-
-                <Link
-                  href="/practice-areas/corporate-law"
-                  className={`flex items-start gap-3 p-3 rounded-lg transition-all duration-300 group border hover:border-primary ${
-                    isActive("/practice-areas/corporate-law")
-                      ? "border-primary/30 bg-primary/5"
-                      : "border-border/30"
-                  }`}
-                  onClick={() => setMobileMenuOpen(false)}>
-                  <div className="flex-shrink-0 p-1.5 rounded-md bg-primary/10 group-hover:scale-110 transition-all duration-300">
-                    <Building2 className="w-4 h-4 text-primary group-hover:text-primary" />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <h3 className="font-semibold text-xs mb-1 text-foreground group-hover:text-primary transition-colors duration-300">
-                      {t("corporateLaw")}
-                    </h3>
-                    <p className="text-xs text-muted-foreground leading-tight">
-                      Business formation & contracts
-                    </p>
-                  </div>
-                </Link>
-
-                <Link
-                  href="/practice-areas/litigation"
-                  className={`flex items-start gap-3 p-3 rounded-lg transition-all duration-300 group border hover:border-primary ${
-                    isActive("/practice-areas/litigation")
-                      ? "border-primary/30 bg-primary/5"
-                      : "border-border/30"
-                  }`}
-                  onClick={() => setMobileMenuOpen(false)}>
-                  <div className="flex-shrink-0 p-1.5 rounded-md bg-primary/10 group-hover:scale-110 transition-all duration-300">
-                    <Scale className="w-4 h-4 text-primary group-hover:text-primary" />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <h3 className="font-semibold text-xs mb-1 text-foreground group-hover:text-primary transition-colors duration-300">
-                      {t("litigation")}
-                    </h3>
-                    <p className="text-xs text-muted-foreground leading-tight">
-                      Dispute resolution
-                    </p>
-                  </div>
-                </Link>
-
-                <Link
-                  href="/practice-areas/intellectual-property"
-                  className={`flex items-start gap-3 p-3 rounded-lg transition-all duration-300 group border hover:border-primary ${
-                    isActive("/practice-areas/intellectual-property")
-                      ? "border-primary/30 bg-primary/5"
-                      : "border-border/30"
-                  }`}
-                  onClick={() => setMobileMenuOpen(false)}>
-                  <div className="flex-shrink-0 p-1.5 rounded-md bg-primary/10 group-hover:scale-110 transition-all duration-300">
-                    <Lightbulb className="w-4 h-4 text-primary group-hover:text-primary" />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <h3 className="font-semibold text-xs mb-1 text-foreground group-hover:text-primary transition-colors duration-300">
-                      {t("intellectualProperty")}
-                    </h3>
-                    <p className="text-xs text-muted-foreground leading-tight">
-                      Patents & trademarks
-                    </p>
-                  </div>
-                </Link>
-
-                <Link
-                  href="/practice-areas/employment-law"
-                  className={`flex items-start gap-3 p-3 rounded-lg transition-all duration-300 group border hover:border-primary ${
-                    isActive("/practice-areas/employment-law")
-                      ? "border-primary/30 bg-primary/5"
-                      : "border-border/30"
-                  }`}
-                  onClick={() => setMobileMenuOpen(false)}>
-                  <div className="flex-shrink-0 p-1.5 rounded-md bg-primary/10 group-hover:scale-110 transition-all duration-300">
-                    <Briefcase className="w-4 h-4 text-primary group-hover:text-primary" />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <h3 className="font-semibold text-xs mb-1 text-foreground group-hover:text-primary transition-colors duration-300">
-                      {t("employmentLaw")}
-                    </h3>
-                    <p className="text-xs text-muted-foreground leading-tight">
-                      Workplace rights
-                    </p>
-                  </div>
-                </Link>
-
-                <Link
-                  href="/practice-areas/real-estate"
-                  className={`flex items-start gap-3 p-3 rounded-lg transition-all duration-300 group border hover:border-primary ${
-                    isActive("/practice-areas/real-estate")
-                      ? "border-primary/30 bg-primary/5"
-                      : "border-border/30"
-                  }`}
-                  onClick={() => setMobileMenuOpen(false)}>
-                  <div className="flex-shrink-0 p-1.5 rounded-md bg-primary/10 group-hover:scale-110 transition-all duration-300">
-                    <Home className="w-4 h-4 text-primary group-hover:text-primary" />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <h3 className="font-semibold text-xs mb-1 text-foreground group-hover:text-primary transition-colors duration-300">
-                      {t("realEstate")}
-                    </h3>
-                    <p className="text-xs text-muted-foreground leading-tight">
-                      Property transactions
-                    </p>
-                  </div>
-                </Link>
-
-                <Link
-                  href="/practice-areas/family-law"
-                  className={`flex items-start gap-3 p-3 rounded-lg transition-all duration-300 group border hover:border-primary ${
-                    isActive("/practice-areas/family-law")
-                      ? "border-primary/30 bg-primary/5"
-                      : "border-border/30"
-                  }`}
-                  onClick={() => setMobileMenuOpen(false)}>
-                  <div className="flex-shrink-0 p-1.5 rounded-md bg-primary/10 group-hover:scale-110 transition-all duration-300">
-                    <Heart className="w-4 h-4 text-primary group-hover:text-primary" />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <h3 className="font-semibold text-xs mb-1 text-foreground group-hover:text-primary transition-colors duration-300">
-                      {t("familyLaw")}
-                    </h3>
-                    <p className="text-xs text-muted-foreground leading-tight">
-                      Divorce & custody
-                    </p>
-                  </div>
-                </Link>
-              </div>
+              )}
             </div>
-            <Link
-              href="/careers"
-              className={`block px-4 py-3 text-sm font-medium transition-all duration-300 hover:text-primary hover:bg-gradient-to-r hover:from-primary/10 hover:to-accent/10 rounded-lg ${
-                isActive("/careers")
-                  ? "text-primary bg-gradient-to-r from-primary/10 to-accent/10"
-                  : ""
-              }`}
-              onClick={() => setMobileMenuOpen(false)}>
-              {t("careers")}
-            </Link>
-            <div className="px-4 py-2">
-              <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2">
-                {t("blogsNews")}
-              </div>
-              <Link
-                href="/newsletters"
-                className={`block px-4 py-2 text-sm font-medium transition-all duration-300 hover:text-primary hover:bg-gradient-to-r hover:from-primary/10 hover:to-accent/10 rounded-lg ${
-                  isActive("/newsletters")
-                    ? "text-primary bg-gradient-to-r from-primary/10 to-accent/10"
-                    : ""
+            <button
+              type="button"
+              onClick={() => setMobileBlogsNewsOpen(!mobileBlogsNewsOpen)}
+              className="flex items-center gap-3 w-full text-left px-4 py-3 rounded-lg transition-all duration-300 hover:bg-gradient-to-r hover:from-primary/10 hover:to-accent/10 hover:text-primary mb-2">
+              <span className="text-sm font-medium">{t("blogsNews")}</span>
+              <ChevronDown
+                className={`w-4 h-4 transition-transform duration-300 ml-auto ${
+                  mobileBlogsNewsOpen ? "rotate-180 text-primary" : ""
                 }`}
-                onClick={() => setMobileMenuOpen(false)}>
-                {t("newsletters")}
-              </Link>
-              <Link
-                href="/careers"
-                className={`block px-4 py-2 text-sm font-medium transition-all duration-300 hover:text-primary hover:bg-gradient-to-r hover:from-primary/10 hover:to-accent/10 rounded-lg ${
-                  isActive("/careers")
-                    ? "text-primary bg-gradient-to-r from-primary/10 to-accent/10"
-                    : ""
-                }`}
-                onClick={() => setMobileMenuOpen(false)}>
-                {t("careers")}
-              </Link>
-              <Link
-                href="/legal-insights"
-                className={`block px-4 py-2 text-sm font-medium transition-all duration-300 hover:text-primary hover:bg-gradient-to-r hover:from-primary/10 hover:to-accent/10 rounded-lg ${
-                  isActive("/legal-insights")
-                    ? "text-primary bg-gradient-to-r from-primary/10 to-accent/10"
-                    : ""
-                }`}
-                onClick={() => setMobileMenuOpen(false)}>
-                {t("legalInsights")}
-              </Link>
-              <Link
-                href="/gallery"
-                className={`block px-4 py-2 text-sm font-medium transition-all duration-300 hover:text-primary hover:bg-gradient-to-r hover:from-primary/10 hover:to-accent/10 rounded-lg ${
-                  isActive("/gallery")
-                    ? "text-primary bg-gradient-to-r from-primary/10 to-accent/10"
-                    : ""
-                }`}
-                onClick={() => setMobileMenuOpen(false)}>
-                {t("gallery")}
-              </Link>
+              />
+            </button>
+            <div
+              className={`overflow-hidden transition-all duration-300 ${
+                mobileBlogsNewsOpen
+                  ? "max-h-[300px] opacity-100"
+                  : "max-h-0 opacity-0"
+              }`}>
+              {mobileBlogsNewsOpen && (
+                <div className="space-y-2">
+                  <Link
+                    href="/newsletters"
+                    className={`flex items-start gap-3 p-3 rounded-lg transition-all duration-300 group border hover:border-primary ${
+                      isActive("/newsletters")
+                        ? "border-primary/30 bg-primary/5"
+                        : "border-border/30"
+                    }`}
+                    onClick={() => setMobileMenuOpen(false)}>
+                    <div className="flex-shrink-0 p-1.5 rounded-md bg-primary/10 group-hover:scale-110 transition-all duration-300">
+                      <FileText className="w-4 h-4 text-primary group-hover:text-primary" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <h3 className="font-semibold text-xs mb-1 text-foreground group-hover:text-primary transition-colors duration-300">
+                        {t("newsletters")}
+                      </h3>
+                    </div>
+                  </Link>
+                  <Link
+                    href="/careers"
+                    className={`flex items-start gap-3 p-3 rounded-lg transition-all duration-300 group border hover:border-primary ${
+                      isActive("/careers")
+                        ? "border-primary/30 bg-primary/5"
+                        : "border-border/30"
+                    }`}
+                    onClick={() => setMobileMenuOpen(false)}>
+                    <div className="flex-shrink-0 p-1.5 rounded-md bg-primary/10 group-hover:scale-110 transition-all duration-300">
+                      <Briefcase className="w-4 h-4 text-primary group-hover:text-primary" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <h3 className="font-semibold text-xs mb-1 text-foreground group-hover:text-primary transition-colors duration-300">
+                        {t("careers")}
+                      </h3>
+                    </div>
+                  </Link>
+                  <Link
+                    href="/legal-insights"
+                    className={`flex items-start gap-3 p-3 rounded-lg transition-all duration-300 group border hover:border-primary ${
+                      isActive("/legal-insights")
+                        ? "border-primary/30 bg-primary/5"
+                        : "border-border/30"
+                    }`}
+                    onClick={() => setMobileMenuOpen(false)}>
+                    <div className="flex-shrink-0 p-1.5 rounded-md bg-primary/10 group-hover:scale-110 transition-all duration-300">
+                      <Lightbulb className="w-4 h-4 text-primary group-hover:text-primary" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <h3 className="font-semibold text-xs mb-1 text-foreground group-hover:text-primary transition-colors duration-300">
+                        {t("legalInsights")}
+                      </h3>
+                    </div>
+                  </Link>
+                  <Link
+                    href="/gallery"
+                    className={`flex items-start gap-3 p-3 rounded-lg transition-all duration-300 group border hover:border-primary ${
+                      isActive("/gallery")
+                        ? "border-primary/30 bg-primary/5"
+                        : "border-border/30"
+                    }`}
+                    onClick={() => setMobileMenuOpen(false)}>
+                    <div className="flex-shrink-0 p-1.5 rounded-md bg-primary/10 group-hover:scale-110 transition-all duration-300">
+                      <ImageIcon className="w-4 h-4 text-primary group-hover:text-primary" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <h3 className="font-semibold text-xs mb-1 text-foreground group-hover:text-primary transition-colors duration-300">
+                        {t("gallery")}
+                      </h3>
+                    </div>
+                  </Link>
+                </div>
+              )}
             </div>
             <Link
               href="/contact"
@@ -745,12 +801,6 @@ export function Navigation() {
               onClick={() => setMobileMenuOpen(false)}>
               {t("contact")}
             </Link>
-
-            {/* Mobile Controls */}
-            <div className="flex items-center gap-3 px-4 py-3 border-t border-border/50 mt-4">
-              <ModeToggle />
-              <LanguageSwitcher />
-            </div>
           </div>
         </div>
       </div>
