@@ -14,7 +14,7 @@ import {
   Zap,
 } from "lucide-react";
 import { useRouter, useParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useState, use } from "react";
 import { Footer } from "@/components/footer";
 import { Navigation } from "@/components/navigation";
 import { Button } from "@/components/ui/button";
@@ -289,16 +289,17 @@ const getTeamMemberBySlug = (slug: string): TeamMember | null => {
 };
 
 interface ProfilePageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 export default function ProfilePage({ params }: ProfilePageProps) {
   const router = useRouter();
   const urlParams = useParams();
   const locale = urlParams.locale;
-  const member = getTeamMemberBySlug(params.slug);
+  const resolvedParams = use(params);
+  const member = getTeamMemberBySlug(resolvedParams.slug);
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
