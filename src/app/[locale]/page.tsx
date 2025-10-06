@@ -109,14 +109,12 @@ export default function Home() {
                 initial={{ opacity: 0, x: -50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8 }}
-                className="max-w-3xl"
-              >
+                className="max-w-3xl">
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.2 }}
-                  className="mb-6"
-                >
+                  className="mb-6">
                   <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full text-sm font-medium text-primary mb-6">
                     <Sparkles className="w-4 h-4" />
                     Trusted Legal Excellence
@@ -127,8 +125,7 @@ export default function Home() {
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.4 }}
-                  className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent"
-                >
+                  className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
                   {t("heroTitle")}
                 </motion.h1>
 
@@ -136,8 +133,7 @@ export default function Home() {
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.6 }}
-                  className="text-xl md:text-2xl text-muted-foreground mb-8"
-                >
+                  className="text-xl md:text-2xl text-muted-foreground mb-8">
                   {t("heroSubtitle")}
                 </motion.p>
 
@@ -145,19 +141,26 @@ export default function Home() {
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.8 }}
-                  className="flex flex-col sm:flex-row gap-4"
-                >
-                  <Button asChild size="lg" className="group">
-                    <Link href="/contact" className="flex items-center gap-2">
+                  className="flex flex-col sm:flex-row gap-4">
+                  <Button
+                    asChild
+                    size="lg"
+                    className="group">
+                    <Link
+                      href="/contact"
+                      className="flex items-center gap-2">
                       {t("getStarted")}
                       <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </Link>
                   </Button>
-                  <Button asChild variant="outline" size="lg" className="group">
+                  <Button
+                    asChild
+                    variant="outline"
+                    size="lg"
+                    className="group">
                     <Link
                       href="/practice-areas"
-                      className="flex items-center gap-2"
-                    >
+                      className="flex items-center gap-2">
                       {t("learnMore")}
                       <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </Link>
@@ -170,8 +173,7 @@ export default function Home() {
                 initial={{ opacity: 0, x: 50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
-                className="flex justify-center lg:justify-end"
-              >
+                className="flex justify-center lg:justify-end">
                 <div className="relative">
                   <motion.div
                     animate={{
@@ -198,7 +200,10 @@ export default function Home() {
           </div>
         </section>
 
-        <WaveDivider variant="bottom" color="muted" />
+        <WaveDivider
+          variant="bottom"
+          color="muted"
+        />
 
         {/* Features Section */}
         <section className="py-20 bg-muted/50 relative overflow-hidden">
@@ -219,8 +224,7 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="text-center mb-16"
-            >
+              className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
                 {t("whyChooseUs")}
               </h2>
@@ -263,12 +267,10 @@ export default function Home() {
                   transition={{ duration: 0.6, delay: 0.1 }}
                   viewport={{ once: true }}
                   whileHover={{ y: -5 }}
-                  className="flex flex-col items-center text-center p-6 bg-background/50 backdrop-blur-sm rounded-xl border border-border/50 hover:border-primary/20 transition-all duration-300 group"
-                >
+                  className="flex flex-col items-center text-center p-6 bg-background/50 backdrop-blur-sm rounded-xl border border-border/50 hover:border-primary/20 transition-all duration-300 group">
                   <motion.div
                     whileHover={{ scale: 1.1, rotate: 5 }}
-                    className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors"
-                  >
+                    className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
                     <feature.icon className="h-8 w-8 text-primary" />
                   </motion.div>
                   <h3 className="text-xl font-semibold mb-2">
@@ -281,7 +283,10 @@ export default function Home() {
           </div>
         </section>
 
-        <WaveDivider variant="bottom" color="background" />
+        <WaveDivider
+          variant="bottom"
+          color="background"
+        />
 
         {/* Practice Areas Preview */}
         <section className="py-20 relative overflow-hidden">
@@ -292,8 +297,7 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="text-center mb-16"
-            >
+              className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
                 {t("practiceAreasTitle")}
               </h2>
@@ -326,12 +330,10 @@ export default function Home() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.1 }}
                   viewport={{ once: true }}
-                  whileHover={{ y: -5 }}
-                >
+                  whileHover={{ y: -5 }}>
                   <Link
                     href={area.href}
-                    className="group p-6 border rounded-lg hover:shadow-lg transition-all block bg-background/50 backdrop-blur-sm hover:border-primary/20"
-                  >
+                    className="group p-6 border rounded-lg hover:shadow-lg transition-all block bg-background/50 backdrop-blur-sm hover:border-primary/20">
                     <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
                       {area.name}
                     </h3>
@@ -352,13 +354,15 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
               viewport={{ once: true }}
-              className="text-center mt-12"
-            >
-              <Button asChild variant="outline" size="lg" className="group">
+              className="text-center mt-12">
+              <Button
+                asChild
+                variant="outline"
+                size="lg"
+                className="group">
                 <Link
                   href="/practice-areas"
-                  className="flex items-center gap-2"
-                >
+                  className="flex items-center gap-2">
                   {t("viewAllPracticeAreas")}
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
@@ -367,7 +371,10 @@ export default function Home() {
           </div>
         </section>
 
-        <WaveDivider variant="bottom" color="muted" />
+        <WaveDivider
+          variant="bottom"
+          color="muted"
+        />
 
         {/* Testimonials Section */}
         <section className="py-20 bg-muted/30 relative overflow-hidden">
@@ -388,8 +395,7 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="text-center mb-16"
-            >
+              className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
                 {t("testimonialsTitle")}
               </h2>
@@ -404,8 +410,7 @@ export default function Home() {
                   align: "start",
                   loop: true,
                 }}
-                className="w-full"
-              >
+                className="w-full">
                 <CarouselContent>
                   {[
                     {
@@ -435,9 +440,10 @@ export default function Home() {
                   ].map((testimonial) => (
                     <CarouselItem
                       key={testimonial.id}
-                      className="md:basis-1/2 lg:basis-1/2"
-                    >
-                      <motion.div whileHover={{ y: -5 }} className="p-6 h-full">
+                      className="md:basis-1/2 lg:basis-1/2">
+                      <motion.div
+                        whileHover={{ y: -5 }}
+                        className="p-6 h-full">
                         <div className="bg-background rounded-lg p-8 shadow-lg h-full flex flex-col border border-border/50 hover:border-primary/20 transition-all">
                           <Quote className="h-10 w-10 text-primary mb-4" />
                           <p className="text-lg mb-6 flex-grow">
@@ -471,7 +477,10 @@ export default function Home() {
           </div>
         </section>
 
-        <WaveDivider variant="bottom" color="background" />
+        <WaveDivider
+          variant="bottom"
+          color="background"
+        />
 
         {/* Video Section */}
         <section className="py-20 relative overflow-hidden">
@@ -482,8 +491,7 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="text-center mb-12"
-            >
+              className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
                 {t("videoTitle")}
               </h2>
@@ -497,12 +505,11 @@ export default function Home() {
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
-              className="max-w-4xl mx-auto"
-            >
+              className="max-w-4xl mx-auto">
               <div className="relative pb-[56.25%] h-0 overflow-hidden rounded-lg shadow-2xl border border-border/50">
                 <iframe
                   className="absolute top-0 left-0 w-full h-full"
-                  src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                  src="https://www.youtube.com/embed/nIo31mMB4P8"
                   title="FAANA Advocacy Introduction"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
@@ -512,7 +519,10 @@ export default function Home() {
           </div>
         </section>
 
-        <WaveDivider variant="bottom" color="muted" />
+        <WaveDivider
+          variant="bottom"
+          color="muted"
+        />
 
         {/* Contact Form Section */}
         <section className="py-20 bg-muted/50 relative overflow-hidden">
@@ -534,8 +544,7 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
-                className="text-center mb-12"
-              >
+                className="text-center mb-12">
                 <h2 className="text-3xl md:text-4xl font-bold mb-4">
                   {t("contactFormTitle")}
                 </h2>
@@ -549,8 +558,7 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
                 viewport={{ once: true }}
-                className="bg-background rounded-lg shadow-lg p-8 border border-border/50"
-              >
+                className="bg-background rounded-lg shadow-lg p-8 border border-border/50">
                 {/* Disclaimer */}
                 <div className="mb-8 p-4 bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg">
                   <p className="text-sm text-yellow-800 dark:text-yellow-200">
@@ -564,8 +572,7 @@ export default function Home() {
                     <div>
                       <label
                         htmlFor="name"
-                        className="block text-sm font-medium mb-2"
-                      >
+                        className="block text-sm font-medium mb-2">
                         {t("nameLabel")}
                       </label>
                       <input
@@ -580,8 +587,7 @@ export default function Home() {
                     <div>
                       <label
                         htmlFor="email"
-                        className="block text-sm font-medium mb-2"
-                      >
+                        className="block text-sm font-medium mb-2">
                         {t("emailLabel")}
                       </label>
                       <input
@@ -599,8 +605,7 @@ export default function Home() {
                     <div>
                       <label
                         htmlFor="phone"
-                        className="block text-sm font-medium mb-2"
-                      >
+                        className="block text-sm font-medium mb-2">
                         {t("phoneLabel")}
                       </label>
                       <input
@@ -614,8 +619,7 @@ export default function Home() {
                     <div>
                       <label
                         htmlFor="subject"
-                        className="block text-sm font-medium mb-2"
-                      >
+                        className="block text-sm font-medium mb-2">
                         {t("subjectLabel")}
                       </label>
                       <input
@@ -632,8 +636,7 @@ export default function Home() {
                   <div>
                     <label
                       htmlFor="message"
-                      className="block text-sm font-medium mb-2"
-                    >
+                      className="block text-sm font-medium mb-2">
                       {t("messageLabel")}
                     </label>
                     <textarea
@@ -646,7 +649,10 @@ export default function Home() {
                     />
                   </div>
 
-                  <Button type="submit" size="lg" className="w-full group">
+                  <Button
+                    type="submit"
+                    size="lg"
+                    className="w-full group">
                     <span className="flex items-center gap-2">
                       {t("submitButton")}
                       <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -661,8 +667,7 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
                 viewport={{ once: true }}
-                className="mt-12 text-center"
-              >
+                className="mt-12 text-center">
                 <h3 className="text-xl font-semibold mb-6">
                   {t("connectWithUs")}
                 </h3>
@@ -696,15 +701,13 @@ export default function Home() {
                       rel="noopener noreferrer"
                       whileHover={{ scale: 1.1, y: -2 }}
                       whileTap={{ scale: 0.95 }}
-                      className="w-12 h-12 rounded-full bg-primary/10 hover:bg-primary hover:text-primary-foreground flex items-center justify-center transition-colors"
-                    >
+                      className="w-12 h-12 rounded-full bg-primary/10 hover:bg-primary hover:text-primary-foreground flex items-center justify-center transition-colors">
                       <span className="sr-only">{social.name}</span>
                       <svg
                         className="w-6 h-6"
                         fill="currentColor"
                         viewBox="0 0 24 24"
-                        aria-hidden="true"
-                      >
+                        aria-hidden="true">
                         <path d={social.icon} />
                       </svg>
                     </motion.a>
@@ -715,7 +718,10 @@ export default function Home() {
           </div>
         </section>
 
-        <WaveDivider variant="bottom" color="background" />
+        <WaveDivider
+          variant="bottom"
+          color="background"
+        />
 
         {/* CTA Section */}
         <section className="py-20 bg-primary text-primary-foreground relative overflow-hidden">
@@ -735,16 +741,21 @@ export default function Home() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
+              viewport={{ once: true }}>
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
                 {t("ctaTitle")}
               </h2>
               <p className="text-lg mb-8 max-w-2xl mx-auto opacity-90">
                 {t("ctaSubtitle")}
               </p>
-              <Button asChild size="lg" variant="secondary" className="group">
-                <Link href="/contact" className="flex items-center gap-2">
+              <Button
+                asChild
+                size="lg"
+                variant="secondary"
+                className="group">
+                <Link
+                  href="/contact"
+                  className="flex items-center gap-2">
                   {t("contactUs")}
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
