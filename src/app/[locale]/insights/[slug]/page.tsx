@@ -24,15 +24,25 @@ interface InsightDetailPageProps {
   };
 }
 
-// Generate static params for all legal insights
+// Generate static params for all legal insights and locales
 export async function generateStaticParams() {
-  return legalInsights.map((insight) => ({
-    slug: insight.slug,
-  }));
+  const locales = ['en', 'am', 'or'];
+  const params: { locale: string; slug: string }[] = [];
+  
+  for (const locale of locales) {
+    for (const insight of legalInsights) {
+      params.push({
+        locale,
+        slug: insight.slug,
+      });
+    }
+  }
+  
+  return params;
 }
 
 // Force static generation
-export const dynamic = 'force-static';
+export const dynamic = "force-static";
 export const dynamicParams = false;
 
 // Generate metadata for each legal insight

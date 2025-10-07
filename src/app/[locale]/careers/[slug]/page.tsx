@@ -28,15 +28,25 @@ interface PositionDetailPageProps {
   };
 }
 
-// Generate static params for all positions
+// Generate static params for all positions and locales
 export async function generateStaticParams() {
-  return positions.map((position) => ({
-    slug: position.slug,
-  }));
+  const locales = ['en', 'am', 'or'];
+  const params: { locale: string; slug: string }[] = [];
+  
+  for (const locale of locales) {
+    for (const position of positions) {
+      params.push({
+        locale,
+        slug: position.slug,
+      });
+    }
+  }
+  
+  return params;
 }
 
 // Force static generation
-export const dynamic = 'force-static';
+export const dynamic = "force-static";
 export const dynamicParams = false;
 
 // Generate metadata for each position

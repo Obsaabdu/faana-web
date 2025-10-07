@@ -24,15 +24,25 @@ interface PhotoCollectionPageProps {
   };
 }
 
-// Generate static params for all photo collections
+// Generate static params for all photo collections and locales
 export async function generateStaticParams() {
-  return photoCollections.map((collection) => ({
-    slug: collection.slug,
-  }));
+  const locales = ['en', 'am', 'or'];
+  const params: { locale: string; slug: string }[] = [];
+  
+  for (const locale of locales) {
+    for (const collection of photoCollections) {
+      params.push({
+        locale,
+        slug: collection.slug,
+      });
+    }
+  }
+  
+  return params;
 }
 
 // Force static generation
-export const dynamic = 'force-static';
+export const dynamic = "force-static";
 export const dynamicParams = false;
 
 // Generate metadata for each photo collection

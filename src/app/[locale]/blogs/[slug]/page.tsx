@@ -348,15 +348,25 @@ interface BlogDetailPageProps {
   };
 }
 
-// Generate static params for all blog posts
+// Generate static params for all blog posts and locales
 export async function generateStaticParams() {
-  return blogPosts.map((post) => ({
-    slug: post.slug,
-  }));
+  const locales = ['en', 'am', 'or'];
+  const params: { locale: string; slug: string }[] = [];
+  
+  for (const locale of locales) {
+    for (const post of blogPosts) {
+      params.push({
+        locale,
+        slug: post.slug,
+      });
+    }
+  }
+  
+  return params;
 }
 
 // Force static generation
-export const dynamic = 'force-static';
+export const dynamic = "force-static";
 export const dynamicParams = false;
 
 // Generate metadata for each blog post

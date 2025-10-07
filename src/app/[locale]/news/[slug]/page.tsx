@@ -24,15 +24,25 @@ interface NewsDetailPageProps {
   };
 }
 
-// Generate static params for all news articles
+// Generate static params for all news articles and locales
 export async function generateStaticParams() {
-  return newsArticles.map((article) => ({
-    slug: article.slug,
-  }));
+  const locales = ['en', 'am', 'or'];
+  const params: { locale: string; slug: string }[] = [];
+  
+  for (const locale of locales) {
+    for (const article of newsArticles) {
+      params.push({
+        locale,
+        slug: article.slug,
+      });
+    }
+  }
+  
+  return params;
 }
 
 // Force static generation
-export const dynamic = 'force-static';
+export const dynamic = "force-static";
 export const dynamicParams = false;
 
 // Generate metadata for each news article
