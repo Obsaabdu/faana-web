@@ -17,10 +17,6 @@ import { Link } from "@/i18n/routing";
 import { notFound } from "next/navigation";
 import { newsArticles } from "@/data/newsArticles";
 
-// Re-export for other pages to use
-export { newsArticles } from "@/data/newsArticles";
-
-// Remove duplicate - data is in src/data/newsArticles.ts
 interface NewsDetailPageProps {
   params: {
     slug: string;
@@ -53,7 +49,7 @@ export async function generateMetadata({ params }: NewsDetailPageProps) {
 }
 
 export default async function NewsDetailPage({ params }: NewsDetailPageProps) {
-  const { slug } = await params;
+  const { slug, locale } = await params;
   const t = await getTranslations("NewsDetailPage");
 
   // Find the news article by slug

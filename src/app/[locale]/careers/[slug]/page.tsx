@@ -21,9 +21,6 @@ import { Link } from "@/i18n/routing";
 import { notFound } from "next/navigation";
 import { positions } from "@/data/positions";
 
-// Re-export for other pages to use
-export { positions } from "@/data/positions";
-
 interface PositionDetailPageProps {
   params: {
     slug: string;
@@ -58,7 +55,7 @@ export async function generateMetadata({ params }: PositionDetailPageProps) {
 export default async function PositionDetailPage({
   params,
 }: PositionDetailPageProps) {
-  const { slug } = await params;
+  const { slug, locale } = await params;
   const t = await getTranslations("PositionDetailPage");
 
   // Find the position by slug

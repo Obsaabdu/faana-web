@@ -17,9 +17,6 @@ import { Link } from "@/i18n/routing";
 import { notFound } from "next/navigation";
 import { legalInsights } from "@/data/legalInsights";
 
-// Re-export for other pages to use
-export { legalInsights } from "@/data/legalInsights";
-
 interface InsightDetailPageProps {
   params: {
     slug: string;
@@ -54,7 +51,7 @@ export async function generateMetadata({ params }: InsightDetailPageProps) {
 export default async function InsightDetailPage({
   params,
 }: InsightDetailPageProps) {
-  const { slug } = await params;
+  const { slug, locale } = await params;
   const t = await getTranslations("InsightDetailPage");
 
   // Find the legal insight by slug

@@ -373,7 +373,7 @@ export async function generateMetadata({ params }: BlogDetailPageProps) {
 }
 
 export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
-  const { slug } = await params;
+  const { slug, locale } = await params;
   const t = await getTranslations("BlogDetailPage");
 
   // Find the blog post by slug

@@ -17,9 +17,6 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import { photoCollections } from "@/data/photoCollections";
 
-// Re-export for other pages to use
-export { photoCollections } from "@/data/photoCollections";
-
 interface PhotoCollectionPageProps {
   params: {
     slug: string;
@@ -54,7 +51,7 @@ export async function generateMetadata({ params }: PhotoCollectionPageProps) {
 export default async function PhotoCollectionPage({
   params,
 }: PhotoCollectionPageProps) {
-  const { slug } = await params;
+  const { slug, locale } = await params;
   const t = await getTranslations("PhotoCollectionPage");
 
   // Find the photo collection by slug
