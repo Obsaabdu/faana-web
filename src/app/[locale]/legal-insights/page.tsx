@@ -24,76 +24,32 @@ import {
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { BackgroundShapes } from "@/components/ui/background-shapes";
+import { legalInsights } from "@/data/legalInsights";
+import { Link } from "@/i18n/routing";
 
 export default function LegalInsightsPage() {
-  const insights = [
-    {
-      id: "corporate-governance-2024",
-      title: "Corporate Governance Trends in 2024",
-      excerpt:
-        "Explore the latest developments in corporate governance, including new regulatory requirements and best practices for board effectiveness.",
-      author: "Sarah Johnson",
-      date: "2024-01-15",
-      category: "Corporate Law",
-      readTime: "8 min read",
-      icon: Scale,
-    },
-    {
-      id: "data-privacy-compliance",
-      title: "Navigating Data Privacy Compliance Across Jurisdictions",
-      excerpt:
-        "A comprehensive guide to data privacy laws and compliance requirements for multinational corporations operating in different regions.",
-      author: "Michael Chen",
-      date: "2024-01-12",
-      category: "Privacy Law",
-      readTime: "12 min read",
-      icon: FileText,
-    },
-    {
-      id: "employment-law-updates",
-      title: "Recent Employment Law Updates and Their Impact",
-      excerpt:
-        "Analysis of recent employment law changes and their implications for employers, including remote work policies and discrimination protections.",
-      author: "Aisha Rahman",
-      date: "2024-01-10",
-      category: "Employment Law",
-      readTime: "6 min read",
-      icon: Gavel,
-    },
-    {
-      id: "intellectual-property-strategy",
-      title: "Strategic Intellectual Property Protection for Startups",
-      excerpt:
-        "Essential IP protection strategies for startups and emerging companies, covering patents, trademarks, and trade secrets.",
-      author: "David Williams",
-      date: "2024-01-08",
-      category: "IP Law",
-      readTime: "10 min read",
-      icon: BookOpen,
-    },
-    {
-      id: "contract-negotiation-tips",
-      title: "Advanced Contract Negotiation Techniques",
-      excerpt:
-        "Professional tips and strategies for negotiating complex commercial contracts and avoiding common pitfalls.",
-      author: "Maria Garcia",
-      date: "2024-01-05",
-      category: "Commercial Law",
-      readTime: "9 min read",
-      icon: FileText,
-    },
-    {
-      id: "litigation-risk-management",
-      title: "Litigation Risk Management for Businesses",
-      excerpt:
-        "Proactive approaches to identifying and mitigating litigation risks in business operations and transactions.",
-      author: "Sarah Johnson",
-      date: "2024-01-03",
-      category: "Litigation",
-      readTime: "11 min read",
-      icon: Scale,
-    },
-  ];
+  // Map legal insights to display format with icons
+  const insights = legalInsights.map((insight) => ({
+    id: insight.slug,
+    title: insight.title,
+    excerpt: insight.excerpt,
+    author: insight.author,
+    date: insight.date,
+    category: insight.category,
+    readTime: insight.readTime,
+    icon: insight.category.includes("Corporate")
+      ? Scale
+      : insight.category.includes("Privacy")
+      ? FileText
+      : insight.category.includes("Employment")
+      ? Gavel
+      : insight.category.includes("IP") ||
+        insight.category.includes("Intellectual")
+      ? BookOpen
+      : insight.category.includes("Litigation")
+      ? Scale
+      : FileText,
+  }));
 
   const categories = [
     "All Categories",
@@ -279,10 +235,13 @@ export default function LegalInsightsPage() {
                         <span>{insight.readTime}</span>
                       </div>
                       <Button
+                        asChild
                         variant="outline"
                         className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                        Read More
-                        <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                        <Link href={`/insights/${insight.id}`}>
+                          Read More
+                          <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                        </Link>
                       </Button>
                     </CardContent>
                   </Card>

@@ -8,7 +8,7 @@ import {
   BookOpen,
   ChevronRight,
 } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import { Footer } from "@/components/footer";
 import { Navigation } from "@/components/navigation";
 import { Button } from "@/components/ui/button";
@@ -357,7 +357,8 @@ export async function generateStaticParams() {
 
 // Generate metadata for each blog post
 export async function generateMetadata({ params }: BlogDetailPageProps) {
-  const post = blogPosts.find((p) => p.slug === params.slug);
+  const { slug } = await params;
+  const post = blogPosts.find((p) => p.slug === slug);
 
   if (!post) {
     return {
@@ -371,11 +372,12 @@ export async function generateMetadata({ params }: BlogDetailPageProps) {
   };
 }
 
-export default function BlogDetailPage({ params }: BlogDetailPageProps) {
-  const t = useTranslations("BlogDetailPage");
+export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
+  const { slug } = await params;
+  const t = await getTranslations("BlogDetailPage");
 
   // Find the blog post by slug
-  const post = blogPosts.find((p) => p.slug === params.slug);
+  const post = blogPosts.find((p) => p.slug === slug);
 
   if (!post) {
     notFound();

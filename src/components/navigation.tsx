@@ -12,6 +12,7 @@ import {
   Lightbulb,
   Mail,
   Menu,
+  Newspaper,
   Scale,
   X,
 } from "lucide-react";
@@ -383,6 +384,7 @@ export function Navigation() {
               <button
                 type="button"
                 className={`relative px-4 py-2 text-sm font-medium transition-all duration-300 hover:text-primary group ${
+                  isActive("/blogs") ||
                   isActive("/newsletters") ||
                   isActive("/careers") ||
                   isActive("/legal-insights") ||
@@ -400,6 +402,7 @@ export function Navigation() {
                 </span>
                 <div
                   className={`absolute inset-0 bg-gradient-to-r from-primary/10 to-accent/10 rounded-lg transition-opacity duration-300 ${
+                    isActive("/blogs") ||
                     isActive("/newsletters") ||
                     isActive("/careers") ||
                     isActive("/legal-insights") ||
@@ -410,6 +413,7 @@ export function Navigation() {
                 />
                 <div
                   className={`absolute bottom-0 h-0.5 bg-gradient-to-r from-primary to-accent transition-all duration-300 ${
+                    isActive("/blogs") ||
                     isActive("/newsletters") ||
                     isActive("/careers") ||
                     isActive("/legal-insights") ||
@@ -421,6 +425,12 @@ export function Navigation() {
               </button>
               {blogsNewsOpen && (
                 <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-56 bg-background/95 backdrop-blur-xl border border-border/50 shadow-xl rounded-2xl p-2">
+                  <Link
+                    href="/blogs"
+                    className="flex items-center gap-2 px-3 py-2 text-sm rounded-lg hover:bg-primary/10 hover:text-primary transition-colors duration-200">
+                    <Newspaper className="w-4 h-4" />
+                    {t("blogs")}
+                  </Link>
                   <Link
                     href="/newsletters"
                     className="flex items-center gap-2 px-3 py-2 text-sm rounded-lg hover:bg-primary/10 hover:text-primary transition-colors duration-200">
@@ -720,6 +730,23 @@ export function Navigation() {
               }`}>
               {mobileBlogsNewsOpen && (
                 <div className="space-y-2">
+                  <Link
+                    href="/blogs"
+                    className={`flex items-start gap-3 p-3 rounded-lg transition-all duration-300 group border hover:border-primary ${
+                      isActive("/blogs")
+                        ? "border-primary/30 bg-primary/5"
+                        : "border-border/30"
+                    }`}
+                    onClick={() => setMobileMenuOpen(false)}>
+                    <div className="flex-shrink-0 p-1.5 rounded-md bg-primary/10 group-hover:scale-110 transition-all duration-300">
+                      <Newspaper className="w-4 h-4 text-primary group-hover:text-primary" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <h3 className="font-semibold text-xs mb-1 text-foreground group-hover:text-primary transition-colors duration-300">
+                        {t("blogs")}
+                      </h3>
+                    </div>
+                  </Link>
                   <Link
                     href="/newsletters"
                     className={`flex items-start gap-3 p-3 rounded-lg transition-all duration-300 group border hover:border-primary ${

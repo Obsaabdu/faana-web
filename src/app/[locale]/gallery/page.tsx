@@ -19,76 +19,21 @@ import {
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { BackgroundShapes } from "@/components/ui/background-shapes";
+import { photoCollections } from "@/data/photoCollections";
+import { Link } from "@/i18n/routing";
 
 export default function GalleryPage() {
-  const galleryItems = [
-    {
-      id: "office-tour-2024",
-      title: "Office Tour 2024",
-      description:
-        "Take a virtual tour of our modern office space and facilities.",
-      category: "Office",
-      date: "2024-01-15",
-      location: "Addis Ababa, Ethiopia",
-      imageCount: 24,
-      icon: Building,
-    },
-    {
-      id: "annual-conference",
-      title: "Annual Legal Conference 2023",
-      description:
-        "Highlights from our annual legal conference featuring industry experts and thought leaders.",
-      category: "Events",
-      date: "2023-12-10",
-      location: "Addis Ababa, Ethiopia",
-      imageCount: 156,
-      icon: Users,
-    },
-    {
-      id: "team-building",
-      title: "Team Building Retreat",
-      description:
-        "Our team building activities and retreat in the beautiful Ethiopian highlands.",
-      category: "Team",
-      date: "2023-11-20",
-      location: "Debre Zeit, Ethiopia",
-      imageCount: 89,
-      icon: Users,
-    },
-    {
-      id: "award-ceremony",
-      title: "Legal Excellence Awards",
-      description:
-        "Celebrating outstanding achievements and recognizing legal excellence in our community.",
-      category: "Awards",
-      date: "2023-10-15",
-      location: "Addis Ababa, Ethiopia",
-      imageCount: 67,
-      icon: Award,
-    },
-    {
-      id: "client-meetings",
-      title: "Client Engagement Events",
-      description:
-        "Professional meetings and networking events with our valued clients and partners.",
-      category: "Events",
-      date: "2023-09-30",
-      location: "Addis Ababa, Ethiopia",
-      imageCount: 43,
-      icon: Users,
-    },
-    {
-      id: "community-outreach",
-      title: "Community Outreach Programs",
-      description:
-        "Our commitment to community service and legal education initiatives.",
-      category: "Community",
-      date: "2023-08-25",
-      location: "Various Locations",
-      imageCount: 78,
-      icon: Building,
-    },
-  ];
+  // Map photo collections to gallery items format
+  const galleryItems = photoCollections.map((collection) => ({
+    id: collection.slug,
+    title: collection.title,
+    description: collection.description,
+    category: collection.category,
+    date: collection.date,
+    location: collection.location,
+    imageCount: collection.photoCount,
+    icon: Camera, // Default icon for all collections
+  }));
 
   const categories = [
     "All Categories",
@@ -285,10 +230,13 @@ export default function GalleryPage() {
                         </div>
                       </div>
                       <Button
+                        asChild
                         variant="outline"
                         className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                        View Gallery
-                        <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                        <Link href={`/photos/${item.id}`}>
+                          View Gallery
+                          <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                        </Link>
                       </Button>
                     </CardContent>
                   </Card>

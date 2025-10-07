@@ -10,6 +10,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import {
@@ -22,6 +23,8 @@ import {
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { BackgroundShapes } from "@/components/ui/background-shapes";
+import { newsArticles } from "@/data/newsArticles";
+import { Link } from "@/i18n/routing";
 
 export default function NewslettersPage() {
   const newsletters = [
@@ -263,8 +266,66 @@ export default function NewslettersPage() {
           </div>
         </section>
 
-        {/* Benefits Section */}
+        {/* Recent News */}
         <section className="py-20 relative overflow-hidden">
+          <BackgroundShapes variant="corporate" />
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                Latest News
+              </h2>
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                Stay updated with our recent firm news and announcements.
+              </p>
+            </motion.div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {newsArticles.slice(0, 4).map((article, index) => (
+                <motion.div
+                  key={article.id}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  whileHover={{ y: -10 }}
+                  className="group">
+                  <Card className="h-full bg-background/50 backdrop-blur-sm border-border/50 hover:border-primary/20 transition-all duration-300 hover:shadow-xl">
+                    <CardHeader>
+                      <Badge
+                        variant="secondary"
+                        className="text-xs mb-2 w-fit">
+                        {article.category}
+                      </Badge>
+                      <CardTitle className="text-lg group-hover:text-primary transition-colors line-clamp-2">
+                        {article.title}
+                      </CardTitle>
+                      <CardDescription className="text-sm text-muted-foreground leading-relaxed line-clamp-3">
+                        {article.excerpt}
+                      </CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                      <Button
+                        asChild
+                        variant="outline"
+                        size="sm"
+                        className="w-full">
+                        <Link href={`/news/${article.slug}`}>Read More</Link>
+                      </Button>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Benefits Section */}
+        <section className="py-20 bg-muted/50 relative overflow-hidden">
           <BackgroundShapes variant="team" />
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="max-w-4xl mx-auto">

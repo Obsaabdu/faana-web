@@ -283,13 +283,9 @@ export default function RealEstatePage() {
                         <h3 className="text-xl font-bold mb-4 text-foreground group-hover:text-primary transition-colors">
                           {service.title}
                         </h3>
-                        <p className="text-muted-foreground leading-relaxed mb-6">
+                        <p className="text-muted-foreground leading-relaxed">
                           {service.desc}
                         </p>
-                        <div className="flex items-center text-primary font-medium group-hover:translate-x-2 transition-transform duration-300">
-                          Learn More
-                          <ArrowRight className="ml-2 h-4 w-4" />
-                        </div>
                       </CardContent>
                       <div className="absolute inset-0 bg-gradient-to-br from-primary to-primary/80 opacity-0 group-hover:opacity-5 transition-opacity duration-500" />
                     </Card>

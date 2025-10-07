@@ -5,6 +5,7 @@ import { Link } from "@/i18n/routing";
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import {
   Briefcase,
   GraduationCap,
@@ -13,33 +14,17 @@ import {
   ArrowRight,
   Sparkles,
   CheckCircle,
+  MapPin,
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { BackgroundShapes } from "@/components/ui/background-shapes";
+import { positions } from "@/data/positions";
 
 export default function CareersPage() {
   const t = useTranslations("CareersPage");
 
-  const openPositions = [
-    {
-      title: t("position1Title"),
-      location: t("position1Location"),
-      type: t("position1Type"),
-      description: t("position1Desc"),
-    },
-    {
-      title: t("position2Title"),
-      location: t("position2Location"),
-      type: t("position2Type"),
-      description: t("position2Desc"),
-    },
-    {
-      title: t("position3Title"),
-      location: t("position3Location"),
-      type: t("position3Type"),
-      description: t("position3Desc"),
-    },
-  ];
+  // Use positions from data file
+  const openPositions = positions;
 
   const benefits = [
     { id: "benefit1", title: t("benefit1Title"), desc: t("benefit1Desc") },
@@ -203,7 +188,7 @@ export default function CareersPage() {
             <div className="max-w-4xl mx-auto space-y-6">
               {openPositions.map((position, index) => (
                 <motion.div
-                  key={position.title}
+                  key={position.slug}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -211,22 +196,53 @@ export default function CareersPage() {
                   whileHover={{ y: -5 }}
                   className="p-6 bg-background border rounded-lg hover:shadow-lg transition-all hover:border-primary/20">
                   <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
-                    <div>
+                    <div className="flex-1">
+                      <div className="flex items-center gap-2 mb-2">
+                        {position.featured && (
+                          <Badge className="bg-primary text-xs">
+                            {t("featured")}
+                          </Badge>
+                        )}
+                        <Badge
+                          variant="outline"
+                          className="text-xs">
+                          {position.department}
+                        </Badge>
+                      </div>
                       <h3 className="text-2xl font-bold mb-2">
                         {position.title}
                       </h3>
-                      <div className="flex flex-wrap gap-3 text-sm text-muted-foreground">
-                        <span>📍 {position.location}</span>
-                        <span>⏰ {position.type}</span>
+                      <div className="flex flex-wrap gap-3 text-sm text-muted-foreground mb-3">
+                        <span className="flex items-center gap-1">
+                          <MapPin className="h-4 w-4" />
+                          {position.location}
+                        </span>
+                        <span className="flex items-center gap-1">
+                          <Briefcase className="h-4 w-4" />
+                          {position.type}
+                        </span>
+                        <span className="flex items-center gap-1">
+                          <TrendingUp className="h-4 w-4" />
+                          {position.experienceLevel}
+                        </span>
                       </div>
+                      <p className="text-muted-foreground">
+                        {position.shortDescription}
+                      </p>
                     </div>
-                    <Button asChild>
-                      <Link href="/contact">{t("apply")}</Link>
-                    </Button>
+                    <div className="flex flex-col gap-2">
+                      <Button asChild>
+                        <Link href={`/careers/${position.slug}`}>
+                          {t("viewDetails")}
+                        </Link>
+                      </Button>
+                      <Button
+                        asChild
+                        variant="outline">
+                        <Link href="/contact">{t("apply")}</Link>
+                      </Button>
+                    </div>
                   </div>
-                  <p className="text-muted-foreground">
-                    {position.description}
-                  </p>
                 </motion.div>
               ))}
             </div>

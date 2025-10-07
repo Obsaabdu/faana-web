@@ -1,0 +1,160 @@
+// Photo collections data - in a real app, this would come from a CMS or database
+export const photoCollections = [
+  {
+    id: 1,
+    slug: "office-opening-ceremony-2025",
+    title: "New Office Opening Ceremony 2025",
+    description:
+      "Celebrating the grand opening of our new state-of-the-art office space in the heart of the city. The event brought together partners, clients, and community leaders.",
+    date: "January 20, 2025",
+    location: "FAANA Advocacy Main Office, Addis Ababa",
+    photographer: "Professional Events Photography",
+    category: "Events",
+    coverImage: "/images/placeholder-office.jpg",
+    photoCount: 24,
+    photos: [
+      {
+        id: 1,
+        url: "/images/placeholder-1.jpg",
+        caption: "Ribbon cutting ceremony with partners and guests",
+        alt: "Office opening ribbon cutting",
+      },
+      {
+        id: 2,
+        url: "/images/placeholder-2.jpg",
+        caption: "Modern conference room with panoramic city views",
+        alt: "Conference room interior",
+      },
+      {
+        id: 3,
+        url: "/images/placeholder-3.jpg",
+        caption: "Partners addressing guests at the opening reception",
+        alt: "Opening reception speech",
+      },
+      {
+        id: 4,
+        url: "/images/placeholder-4.jpg",
+        caption: "State-of-the-art legal library and research center",
+        alt: "Legal library",
+      },
+      {
+        id: 5,
+        url: "/images/placeholder-5.jpg",
+        caption: "Elegant lobby area with modern design",
+        alt: "Office lobby",
+      },
+      {
+        id: 6,
+        url: "/images/placeholder-6.jpg",
+        caption: "Guest networking during the reception",
+        alt: "Networking reception",
+      },
+    ],
+    tags: ["Office", "Events", "Celebration", "2025"],
+  },
+  {
+    id: 2,
+    slug: "annual-charity-gala-2024",
+    title: "Annual Charity Gala 2024",
+    description:
+      "Our annual charity gala raised funds for local legal aid organizations. The evening featured speeches, awards, and celebration of our community impact.",
+    date: "December 15, 2024",
+    location: "Grand Ballroom, Sheraton Addis",
+    photographer: "Elite Event Photography",
+    category: "Community",
+    coverImage: "/images/placeholder-gala.jpg",
+    photoCount: 18,
+    photos: [
+      {
+        id: 1,
+        url: "/images/placeholder-1.jpg",
+        caption: "Guests arriving at the charity gala",
+        alt: "Gala entrance",
+      },
+      {
+        id: 2,
+        url: "/images/placeholder-2.jpg",
+        caption: "Award ceremony honoring pro bono work",
+        alt: "Award ceremony",
+      },
+      {
+        id: 3,
+        url: "/images/placeholder-3.jpg",
+        caption: "Partners with legal aid organization representatives",
+        alt: "Partners and representatives",
+      },
+      {
+        id: 4,
+        url: "/images/placeholder-4.jpg",
+        caption: "Fundraising auction for community programs",
+        alt: "Charity auction",
+      },
+      {
+        id: 5,
+        url: "/images/placeholder-5.jpg",
+        caption: "Guests enjoying the evening reception",
+        alt: "Evening reception",
+      },
+      {
+        id: 6,
+        url: "/images/placeholder-6.jpg",
+        caption: "Team photo with charity beneficiaries",
+        alt: "Group photo",
+      },
+    ],
+    tags: ["Charity", "Community", "Gala", "Fundraising"],
+  },
+  {
+    id: 3,
+    slug: "law-school-seminar-series",
+    title: "Law School Seminar Series",
+    description:
+      "FAANA partners conducted a series of educational seminars at local law schools, sharing insights on legal practice and career development.",
+    date: "November 10, 2024",
+    location: "Addis Ababa University, School of Law",
+    photographer: "University Media Department",
+    category: "Education",
+    coverImage: "/images/placeholder-seminar.jpg",
+    photoCount: 15,
+    photos: [
+      {
+        id: 1,
+        url: "/images/placeholder-1.jpg",
+        caption: "Partner presenting on corporate law practice",
+        alt: "Seminar presentation",
+      },
+      {
+        id: 2,
+        url: "/images/placeholder-2.jpg",
+        caption: "Students engaged in Q&A session",
+        alt: "Student Q&A",
+      },
+      {
+        id: 3,
+        url: "/images/placeholder-3.jpg",
+        caption: "Interactive workshop on legal research",
+        alt: "Legal research workshop",
+      },
+      {
+        id: 4,
+        url: "/images/placeholder-4.jpg",
+        caption: "Networking session with law students",
+        alt: "Student networking",
+      },
+      {
+        id: 5,
+        url: "/images/placeholder-5.jpg",
+        caption: "Group discussion on career paths in law",
+        alt: "Career discussion",
+      },
+      {
+        id: 6,
+        url: "/images/placeholder-6.jpg",
+        caption: "Partners with faculty and students",
+        alt: "Group photo with students",
+      },
+    ],
+    tags: ["Education", "Seminars", "Law School", "Students"],
+  },
+];
+

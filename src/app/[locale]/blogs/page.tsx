@@ -5,6 +5,7 @@ import { Navigation } from "@/components/navigation";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "@/i18n/routing";
+import { newsArticles } from "@/data/newsArticles";
 
 export default function BlogsPage() {
   const t = useTranslations("BlogsPage");
@@ -212,8 +213,54 @@ export default function BlogsPage() {
           </div>
         </section>
 
-        {/* Categories */}
+        {/* Firm News */}
         <section className="py-20">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-6xl mx-auto">
+              <h2 className="text-3xl font-bold mb-12 text-center">
+                {t("firmNewsTitle")}
+              </h2>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                {newsArticles.map((article) => (
+                  <article
+                    key={article.id}
+                    className="bg-background border rounded-xl p-6 hover:shadow-lg transition-shadow group">
+                    <div className="flex items-center gap-2 mb-4">
+                      <Badge
+                        variant="outline"
+                        className="text-xs">
+                        {article.category}
+                      </Badge>
+                    </div>
+                    <h3 className="text-lg font-semibold mb-3 group-hover:text-primary transition-colors line-clamp-2">
+                      {article.title}
+                    </h3>
+                    <p className="text-muted-foreground mb-4 line-clamp-3 text-sm">
+                      {article.excerpt}
+                    </p>
+                    <div className="flex items-center text-sm text-muted-foreground mb-4">
+                      <Calendar className="h-4 w-4 mr-2" />
+                      {article.date}
+                    </div>
+                    <Button
+                      asChild
+                      variant="outline"
+                      size="sm"
+                      className="w-full">
+                      <Link href={`/news/${article.slug}`}>
+                        {t("readMore")}
+                      </Link>
+                    </Button>
+                  </article>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Categories */}
+        <section className="py-20 bg-muted/50">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-3xl font-bold mb-12 text-center">
