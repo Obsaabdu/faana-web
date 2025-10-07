@@ -31,6 +31,10 @@ export async function generateStaticParams() {
   }));
 }
 
+// Force static generation
+export const dynamic = 'force-static';
+export const dynamicParams = false;
+
 // Generate metadata for each legal insight
 export async function generateMetadata({ params }: InsightDetailPageProps) {
   const { slug } = await params;

@@ -355,6 +355,10 @@ export async function generateStaticParams() {
   }));
 }
 
+// Force static generation
+export const dynamic = 'force-static';
+export const dynamicParams = false;
+
 // Generate metadata for each blog post
 export async function generateMetadata({ params }: BlogDetailPageProps) {
   const { slug } = await params;
