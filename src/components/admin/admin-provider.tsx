@@ -48,7 +48,8 @@ export function AdminProvider({ children }: { children: ReactNode }) {
         user,
         isAuthenticated,
         refreshAuth,
-      }}>
+      }}
+    >
       {children}
     </AdminContext.Provider>
   );

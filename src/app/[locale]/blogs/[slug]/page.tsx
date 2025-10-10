@@ -1,20 +1,20 @@
 import {
-  Calendar,
-  Clock,
-  User,
   ArrowLeft,
+  BookOpen,
+  Calendar,
+  ChevronRight,
+  Clock,
   Share2,
   Tag,
-  BookOpen,
-  ChevronRight,
+  User,
 } from "lucide-react";
+import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 import { Footer } from "@/components/footer";
 import { Navigation } from "@/components/navigation";
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/routing";
-import { notFound } from "next/navigation";
 
 // Blog posts data - in a real app, this would come from a CMS or database
 export const blogPosts = [
@@ -350,9 +350,9 @@ interface BlogDetailPageProps {
 
 // Generate static params for all blog posts and locales
 export async function generateStaticParams() {
-  const locales = ['en', 'am', 'or'];
+  const locales = ["en", "am", "or"];
   const params: { locale: string; slug: string }[] = [];
-  
+
   for (const locale of locales) {
     for (const post of blogPosts) {
       params.push({
@@ -361,7 +361,7 @@ export async function generateStaticParams() {
       });
     }
   }
-  
+
   return params;
 }
 
@@ -410,15 +410,14 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
         <section className="py-8 bg-muted/30">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <nav className="flex items-center gap-2 text-sm text-muted-foreground">
-              <Link
-                href="/"
-                className="hover:text-primary transition-colors">
+              <Link href="/" className="hover:text-primary transition-colors">
                 {t("home")}
               </Link>
               <ChevronRight className="h-4 w-4" />
               <Link
                 href="/blogs"
-                className="hover:text-primary transition-colors">
+                className="hover:text-primary transition-colors"
+              >
                 {t("blogs")}
               </Link>
               <ChevronRight className="h-4 w-4" />
@@ -432,13 +431,8 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto">
               <div className="mb-6">
-                <Button
-                  asChild
-                  variant="ghost"
-                  className="mb-4">
-                  <Link
-                    href="/blogs"
-                    className="flex items-center gap-2">
+                <Button asChild variant="ghost" className="mb-4">
+                  <Link href="/blogs" className="flex items-center gap-2">
                     <ArrowLeft className="h-4 w-4" />
                     {t("backToBlogs")}
                   </Link>
@@ -447,7 +441,8 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
                 <div className="flex items-center gap-2 mb-4">
                   <Badge
                     variant="secondary"
-                    className="bg-primary/10 text-primary">
+                    className="bg-primary/10 text-primary"
+                  >
                     {post.category}
                   </Badge>
                   <div className="flex items-center gap-2 text-sm text-muted-foreground">
@@ -485,7 +480,8 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
                 <Button
                   variant="outline"
                   size="sm"
-                  className="flex items-center gap-2">
+                  className="flex items-center gap-2"
+                >
                   <Share2 className="h-4 w-4" />
                   {t("share")}
                 </Button>
@@ -511,10 +507,7 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {post.tags.map((tag) => (
-                    <Badge
-                      key={tag}
-                      variant="outline"
-                      className="text-sm">
+                    <Badge key={tag} variant="outline" className="text-sm">
                       {tag}
                     </Badge>
                   ))}
@@ -537,11 +530,10 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
                   {relatedPosts.map((relatedPost) => (
                     <article
                       key={relatedPost.id}
-                      className="bg-background border rounded-xl p-6 hover:shadow-lg transition-shadow group">
+                      className="bg-background border rounded-xl p-6 hover:shadow-lg transition-shadow group"
+                    >
                       <div className="flex items-center gap-2 mb-4">
-                        <Badge
-                          variant="outline"
-                          className="text-xs">
+                        <Badge variant="outline" className="text-xs">
                           {relatedPost.category}
                         </Badge>
                       </div>
@@ -561,10 +553,7 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
                           {relatedPost.readTime}
                         </div>
                       </div>
-                      <Button
-                        asChild
-                        variant="outline"
-                        className="w-full">
+                      <Button asChild variant="outline" className="w-full">
                         <Link href={`/blogs/${relatedPost.slug}`}>
                           {t("readMore")}
                         </Link>
@@ -592,10 +581,7 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
                   placeholder={t("emailPlaceholder")}
                   className="flex-1 px-4 py-3 rounded-lg text-foreground bg-background/10 border border-background/20 placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-background/50"
                 />
-                <Button
-                  size="lg"
-                  variant="secondary"
-                  className="px-8">
+                <Button size="lg" variant="secondary" className="px-8">
                   {t("subscribe")}
                 </Button>
               </div>

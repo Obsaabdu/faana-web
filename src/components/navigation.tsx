@@ -87,7 +87,8 @@ export function Navigation() {
         scrolled
           ? "bg-background/80 backdrop-blur-xl shadow-lg"
           : "bg-background/60 backdrop-blur-md"
-      }`}>
+      }`}
+    >
       {/* Curvy bottom border with animated wave effect */}
       <div className="relative overflow-hidden">
         <div className="absolute -bottom-1 left-0 right-0 h-3">
@@ -96,7 +97,8 @@ export function Navigation() {
             viewBox="0 0 1200 120"
             preserveAspectRatio="none"
             aria-hidden="true"
-            role="presentation">
+            role="presentation"
+          >
             {/* Main wave */}
             <path
               d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"
@@ -125,7 +127,8 @@ export function Navigation() {
           <div className="flex-shrink-0">
             <Link
               href="/"
-              className="flex items-center gap-3 group transition-all duration-300 hover:scale-105">
+              className="flex items-center gap-3 group transition-all duration-300 hover:scale-105"
+            >
               <div className="relative">
                 <Image
                   src="/faana-logo.png"
@@ -137,7 +140,7 @@ export function Navigation() {
                 <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded-full blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 dark:opacity-30 dark:group-hover:opacity-60" />
               </div>
               <span className="text-xl font-bold bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent transition-all duration-300 group-hover:from-primary group-hover:to-accent">
-                FAANA
+                FAANA Advocacy
               </span>
             </Link>
           </div>
@@ -148,7 +151,8 @@ export function Navigation() {
               href="/"
               className={`relative px-4 py-2 text-sm font-medium transition-all duration-300 hover:text-primary group ${
                 isActive("/") ? "text-primary" : ""
-              }`}>
+              }`}
+            >
               <span className="relative z-10">{t("home")}</span>
               <div
                 className={`absolute inset-0 bg-gradient-to-r from-primary/10 to-accent/10 rounded-lg transition-opacity duration-300 ${
@@ -169,7 +173,8 @@ export function Navigation() {
               href="/about"
               className={`relative px-4 py-2 text-sm font-medium transition-all duration-300 hover:text-primary group ${
                 isActive("/about") ? "text-primary" : ""
-              }`}>
+              }`}
+            >
               <span className="relative z-10">{t("about")}</span>
               <div
                 className={`absolute inset-0 bg-gradient-to-r from-primary/10 to-accent/10 rounded-lg transition-opacity duration-300 ${
@@ -192,12 +197,14 @@ export function Navigation() {
               className="relative"
               aria-label="Practice Areas Menu"
               onMouseEnter={handlePracticeAreasMouseEnter}
-              onMouseLeave={handlePracticeAreasMouseLeave}>
+              onMouseLeave={handlePracticeAreasMouseLeave}
+            >
               <button
                 type="button"
                 className={`relative flex items-center gap-1 px-4 py-2 text-sm font-medium transition-all duration-300 hover:text-primary group ${
                   isActive("/practice-areas") ? "text-primary" : ""
-                }`}>
+                }`}
+              >
                 <span className="relative z-10">{t("practiceAreas")}</span>
                 <ChevronDown
                   className={`h-4 w-4 transition-transform duration-300 ${
@@ -230,7 +237,8 @@ export function Navigation() {
                         !pathname.includes("/practice-areas/")
                           ? "border-primary/30 bg-primary/5"
                           : "border-border/30"
-                      }`}>
+                      }`}
+                    >
                       <div className="flex-shrink-0 p-2 rounded-lg bg-primary/10 group-hover:scale-110 transition-all duration-300">
                         <FileText className="w-5 h-5 text-primary group-hover:text-primary" />
                       </div>
@@ -251,7 +259,8 @@ export function Navigation() {
                         isActive("/practice-areas/corporate-law")
                           ? "border-primary/30 bg-primary/5"
                           : "border-border/30"
-                      }`}>
+                      }`}
+                    >
                       <div className="flex-shrink-0 p-2 rounded-lg bg-primary/10 group-hover:scale-110 transition-all duration-300">
                         <Building2 className="w-5 h-5 text-primary group-hover:text-primary" />
                       </div>
@@ -273,7 +282,8 @@ export function Navigation() {
                         isActive("/practice-areas/litigation")
                           ? "border-primary/30 bg-primary/5"
                           : "border-border/30"
-                      }`}>
+                      }`}
+                    >
                       <div className="flex-shrink-0 p-2 rounded-lg bg-primary/10 group-hover:scale-110 transition-all duration-300">
                         <Scale className="w-5 h-5 text-primary group-hover:text-primary" />
                       </div>
@@ -294,7 +304,8 @@ export function Navigation() {
                         isActive("/practice-areas/intellectual-property")
                           ? "border-primary/30 bg-primary/5"
                           : "border-border/30"
-                      }`}>
+                      }`}
+                    >
                       <div className="flex-shrink-0 p-2 rounded-lg bg-primary/10 group-hover:scale-110 transition-all duration-300">
                         <Lightbulb className="w-5 h-5 text-primary group-hover:text-primary" />
                       </div>
@@ -315,7 +326,8 @@ export function Navigation() {
                         isActive("/practice-areas/employment-law")
                           ? "border-primary/30 bg-primary/5"
                           : "border-border/30"
-                      }`}>
+                      }`}
+                    >
                       <div className="flex-shrink-0 p-2 rounded-lg bg-primary/10 group-hover:scale-110 transition-all duration-300">
                         <Briefcase className="w-5 h-5 text-primary group-hover:text-primary" />
                       </div>
@@ -336,7 +348,8 @@ export function Navigation() {
                         isActive("/practice-areas/real-estate")
                           ? "border-primary/30 bg-primary/5"
                           : "border-border/30"
-                      }`}>
+                      }`}
+                    >
                       <div className="flex-shrink-0 p-2 rounded-lg bg-primary/10 group-hover:scale-110 transition-all duration-300">
                         <Home className="w-5 h-5 text-primary group-hover:text-primary" />
                       </div>
@@ -357,7 +370,8 @@ export function Navigation() {
                         isActive("/practice-areas/family-law")
                           ? "border-primary/30 bg-primary/5"
                           : "border-border/30"
-                      }`}>
+                      }`}
+                    >
                       <div className="flex-shrink-0 p-2 rounded-lg bg-primary/10 group-hover:scale-110 transition-all duration-300">
                         <Heart className="w-5 h-5 text-primary group-hover:text-primary" />
                       </div>
@@ -380,7 +394,8 @@ export function Navigation() {
               className="relative"
               aria-label="Blogs and News Menu"
               onMouseEnter={handleBlogsNewsMouseEnter}
-              onMouseLeave={handleBlogsNewsMouseLeave}>
+              onMouseLeave={handleBlogsNewsMouseLeave}
+            >
               <button
                 type="button"
                 className={`relative px-4 py-2 text-sm font-medium transition-all duration-300 hover:text-primary group ${
@@ -391,7 +406,8 @@ export function Navigation() {
                   isActive("/gallery")
                     ? "text-primary"
                     : ""
-                }`}>
+                }`}
+              >
                 <span className="relative z-10 flex items-center gap-1">
                   {t("blogsNews")}
                   <ChevronDown
@@ -427,31 +443,36 @@ export function Navigation() {
                 <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-56 bg-background/95 backdrop-blur-xl border border-border/50 shadow-xl rounded-2xl p-2">
                   <Link
                     href="/blogs"
-                    className="flex items-center gap-2 px-3 py-2 text-sm rounded-lg hover:bg-primary/10 hover:text-primary transition-colors duration-200">
+                    className="flex items-center gap-2 px-3 py-2 text-sm rounded-lg hover:bg-primary/10 hover:text-primary transition-colors duration-200"
+                  >
                     <Newspaper className="w-4 h-4" />
                     {t("blogs")}
                   </Link>
                   <Link
                     href="/newsletters"
-                    className="flex items-center gap-2 px-3 py-2 text-sm rounded-lg hover:bg-primary/10 hover:text-primary transition-colors duration-200">
+                    className="flex items-center gap-2 px-3 py-2 text-sm rounded-lg hover:bg-primary/10 hover:text-primary transition-colors duration-200"
+                  >
                     <Mail className="w-4 h-4" />
                     {t("newsletters")}
                   </Link>
                   <Link
                     href="/careers"
-                    className="flex items-center gap-2 px-3 py-2 text-sm rounded-lg hover:bg-primary/10 hover:text-primary transition-colors duration-200">
+                    className="flex items-center gap-2 px-3 py-2 text-sm rounded-lg hover:bg-primary/10 hover:text-primary transition-colors duration-200"
+                  >
                     <Briefcase className="w-4 h-4" />
                     {t("careers")}
                   </Link>
                   <Link
                     href="/legal-insights"
-                    className="flex items-center gap-2 px-3 py-2 text-sm rounded-lg hover:bg-primary/10 hover:text-primary transition-colors duration-200">
+                    className="flex items-center gap-2 px-3 py-2 text-sm rounded-lg hover:bg-primary/10 hover:text-primary transition-colors duration-200"
+                  >
                     <FileText className="w-4 h-4" />
                     {t("legalInsights")}
                   </Link>
                   <Link
                     href="/gallery"
-                    className="flex items-center gap-2 px-3 py-2 text-sm rounded-lg hover:bg-primary/10 hover:text-primary transition-colors duration-200">
+                    className="flex items-center gap-2 px-3 py-2 text-sm rounded-lg hover:bg-primary/10 hover:text-primary transition-colors duration-200"
+                  >
                     <Camera className="w-4 h-4" />
                     {t("gallery")}
                   </Link>
@@ -462,7 +483,8 @@ export function Navigation() {
               href="/contact"
               className={`relative px-4 py-2 text-sm font-medium transition-all duration-300 hover:text-primary group ${
                 isActive("/contact") ? "text-primary" : ""
-              }`}>
+              }`}
+            >
               <span className="relative z-10">{t("contact")}</span>
               <div
                 className={`absolute inset-0 bg-gradient-to-r from-primary/10 to-accent/10 rounded-lg transition-opacity duration-300 ${
@@ -493,7 +515,8 @@ export function Navigation() {
               variant="ghost"
               size="icon"
               className="md:hidden relative overflow-hidden bg-gradient-to-r from-primary/10 to-accent/10 hover:from-primary/20 hover:to-accent/20 transition-all duration-300 hover:scale-105"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            >
               <div className="relative z-10 transition-transform duration-300">
                 {mobileMenuOpen ? (
                   <X className="h-5 w-5 rotate-90" />
@@ -512,7 +535,8 @@ export function Navigation() {
             mobileMenuOpen
               ? "max-h-screen opacity-100 py-4 bg-background/95 backdrop-blur-xl"
               : "max-h-0 opacity-0 py-0"
-          }`}>
+          }`}
+        >
           <div className="space-y-1 max-h-[80vh] overflow-y-auto">
             {/* Mobile Controls - Top */}
             <div className="flex items-center justify-right gap-3 px-4 py-3 border-b border-border/50 mb-4">
@@ -527,7 +551,8 @@ export function Navigation() {
                   ? "text-primary bg-gradient-to-r from-primary/10 to-accent/10"
                   : ""
               }`}
-              onClick={() => setMobileMenuOpen(false)}>
+              onClick={() => setMobileMenuOpen(false)}
+            >
               {t("home")}
             </Link>
             <Link
@@ -537,7 +562,8 @@ export function Navigation() {
                   ? "text-primary bg-gradient-to-r from-primary/10 to-accent/10"
                   : ""
               }`}
-              onClick={() => setMobileMenuOpen(false)}>
+              onClick={() => setMobileMenuOpen(false)}
+            >
               {t("about")}
             </Link>
             <button
@@ -545,7 +571,8 @@ export function Navigation() {
               onClick={() =>
                 setMobilePracticeAreasOpen(!mobilePracticeAreasOpen)
               }
-              className="flex items-center gap-3 w-full text-left px-4 py-3 rounded-lg transition-all duration-300 hover:bg-gradient-to-r hover:from-primary/10 hover:to-accent/10 hover:text-primary mb-4">
+              className="flex items-center gap-3 w-full text-left px-4 py-3 rounded-lg transition-all duration-300 hover:bg-gradient-to-r hover:from-primary/10 hover:to-accent/10 hover:text-primary mb-4"
+            >
               <span className="text-sm font-medium">{t("practiceAreas")}</span>
               <ChevronDown
                 className={`w-4 h-4 transition-transform duration-300 ml-auto ${
@@ -558,7 +585,8 @@ export function Navigation() {
                 mobilePracticeAreasOpen
                   ? "max-h-[500px] opacity-100"
                   : "max-h-0 opacity-0"
-              }`}>
+              }`}
+            >
               {mobilePracticeAreasOpen && (
                 <div className="space-y-2">
                   <Link
@@ -569,7 +597,8 @@ export function Navigation() {
                         ? "border-primary/30 bg-primary/5"
                         : "border-border/30"
                     }`}
-                    onClick={() => setMobileMenuOpen(false)}>
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
                     <div className="flex-shrink-0 p-1.5 rounded-md bg-primary/10 group-hover:scale-110 transition-all duration-300">
                       <FileText className="w-4 h-4 text-primary group-hover:text-primary" />
                     </div>
@@ -590,7 +619,8 @@ export function Navigation() {
                         ? "border-primary/30 bg-primary/5"
                         : "border-border/30"
                     }`}
-                    onClick={() => setMobileMenuOpen(false)}>
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
                     <div className="flex-shrink-0 p-1.5 rounded-md bg-primary/10 group-hover:scale-110 transition-all duration-300">
                       <Building2 className="w-4 h-4 text-primary group-hover:text-primary" />
                     </div>
@@ -611,7 +641,8 @@ export function Navigation() {
                         ? "border-primary/30 bg-primary/5"
                         : "border-border/30"
                     }`}
-                    onClick={() => setMobileMenuOpen(false)}>
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
                     <div className="flex-shrink-0 p-1.5 rounded-md bg-primary/10 group-hover:scale-110 transition-all duration-300">
                       <Scale className="w-4 h-4 text-primary group-hover:text-primary" />
                     </div>
@@ -632,7 +663,8 @@ export function Navigation() {
                         ? "border-primary/30 bg-primary/5"
                         : "border-border/30"
                     }`}
-                    onClick={() => setMobileMenuOpen(false)}>
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
                     <div className="flex-shrink-0 p-1.5 rounded-md bg-primary/10 group-hover:scale-110 transition-all duration-300">
                       <Lightbulb className="w-4 h-4 text-primary group-hover:text-primary" />
                     </div>
@@ -653,7 +685,8 @@ export function Navigation() {
                         ? "border-primary/30 bg-primary/5"
                         : "border-border/30"
                     }`}
-                    onClick={() => setMobileMenuOpen(false)}>
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
                     <div className="flex-shrink-0 p-1.5 rounded-md bg-primary/10 group-hover:scale-110 transition-all duration-300">
                       <Briefcase className="w-4 h-4 text-primary group-hover:text-primary" />
                     </div>
@@ -674,7 +707,8 @@ export function Navigation() {
                         ? "border-primary/30 bg-primary/5"
                         : "border-border/30"
                     }`}
-                    onClick={() => setMobileMenuOpen(false)}>
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
                     <div className="flex-shrink-0 p-1.5 rounded-md bg-primary/10 group-hover:scale-110 transition-all duration-300">
                       <Home className="w-4 h-4 text-primary group-hover:text-primary" />
                     </div>
@@ -695,7 +729,8 @@ export function Navigation() {
                         ? "border-primary/30 bg-primary/5"
                         : "border-border/30"
                     }`}
-                    onClick={() => setMobileMenuOpen(false)}>
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
                     <div className="flex-shrink-0 p-1.5 rounded-md bg-primary/10 group-hover:scale-110 transition-all duration-300">
                       <Heart className="w-4 h-4 text-primary group-hover:text-primary" />
                     </div>
@@ -714,7 +749,8 @@ export function Navigation() {
             <button
               type="button"
               onClick={() => setMobileBlogsNewsOpen(!mobileBlogsNewsOpen)}
-              className="flex items-center gap-3 w-full text-left px-4 py-3 rounded-lg transition-all duration-300 hover:bg-gradient-to-r hover:from-primary/10 hover:to-accent/10 hover:text-primary mb-2">
+              className="flex items-center gap-3 w-full text-left px-4 py-3 rounded-lg transition-all duration-300 hover:bg-gradient-to-r hover:from-primary/10 hover:to-accent/10 hover:text-primary mb-2"
+            >
               <span className="text-sm font-medium">{t("blogsNews")}</span>
               <ChevronDown
                 className={`w-4 h-4 transition-transform duration-300 ml-auto ${
@@ -727,7 +763,8 @@ export function Navigation() {
                 mobileBlogsNewsOpen
                   ? "max-h-[300px] opacity-100"
                   : "max-h-0 opacity-0"
-              }`}>
+              }`}
+            >
               {mobileBlogsNewsOpen && (
                 <div className="space-y-2">
                   <Link
@@ -737,7 +774,8 @@ export function Navigation() {
                         ? "border-primary/30 bg-primary/5"
                         : "border-border/30"
                     }`}
-                    onClick={() => setMobileMenuOpen(false)}>
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
                     <div className="flex-shrink-0 p-1.5 rounded-md bg-primary/10 group-hover:scale-110 transition-all duration-300">
                       <Newspaper className="w-4 h-4 text-primary group-hover:text-primary" />
                     </div>
@@ -754,7 +792,8 @@ export function Navigation() {
                         ? "border-primary/30 bg-primary/5"
                         : "border-border/30"
                     }`}
-                    onClick={() => setMobileMenuOpen(false)}>
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
                     <div className="flex-shrink-0 p-1.5 rounded-md bg-primary/10 group-hover:scale-110 transition-all duration-300">
                       <FileText className="w-4 h-4 text-primary group-hover:text-primary" />
                     </div>
@@ -771,7 +810,8 @@ export function Navigation() {
                         ? "border-primary/30 bg-primary/5"
                         : "border-border/30"
                     }`}
-                    onClick={() => setMobileMenuOpen(false)}>
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
                     <div className="flex-shrink-0 p-1.5 rounded-md bg-primary/10 group-hover:scale-110 transition-all duration-300">
                       <Briefcase className="w-4 h-4 text-primary group-hover:text-primary" />
                     </div>
@@ -788,7 +828,8 @@ export function Navigation() {
                         ? "border-primary/30 bg-primary/5"
                         : "border-border/30"
                     }`}
-                    onClick={() => setMobileMenuOpen(false)}>
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
                     <div className="flex-shrink-0 p-1.5 rounded-md bg-primary/10 group-hover:scale-110 transition-all duration-300">
                       <Lightbulb className="w-4 h-4 text-primary group-hover:text-primary" />
                     </div>
@@ -805,7 +846,8 @@ export function Navigation() {
                         ? "border-primary/30 bg-primary/5"
                         : "border-border/30"
                     }`}
-                    onClick={() => setMobileMenuOpen(false)}>
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
                     <div className="flex-shrink-0 p-1.5 rounded-md bg-primary/10 group-hover:scale-110 transition-all duration-300">
                       <ImageIcon className="w-4 h-4 text-primary group-hover:text-primary" />
                     </div>
@@ -825,7 +867,8 @@ export function Navigation() {
                   ? "text-primary bg-gradient-to-r from-primary/10 to-accent/10"
                   : ""
               }`}
-              onClick={() => setMobileMenuOpen(false)}>
+              onClick={() => setMobileMenuOpen(false)}
+            >
               {t("contact")}
             </Link>
           </div>

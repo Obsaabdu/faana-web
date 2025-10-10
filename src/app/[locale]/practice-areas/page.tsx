@@ -1,12 +1,12 @@
 import {
+  ArrowRight,
+  Award,
+  Briefcase,
   Building2,
-  Scale,
   Heart,
   Home,
   Lightbulb,
-  Briefcase,
-  ArrowRight,
-  Award,
+  Scale,
   Shield,
   Users,
 } from "lucide-react";
@@ -118,7 +118,8 @@ export default function PracticeAreasPage() {
                 <div
                   key={stat.label}
                   className="text-center animate-fade-in-up"
-                  style={{ animationDelay: `${index * 200}ms` }}>
+                  style={{ animationDelay: `${index * 200}ms` }}
+                >
                   <div className="w-12 h-12 mx-auto mb-3 rounded-full bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center">
                     <stat.icon className="h-6 w-6 text-primary" />
                   </div>
@@ -150,10 +151,12 @@ export default function PracticeAreasPage() {
                   <Link
                     key={area.href}
                     href={area.href}
-                    className="group block">
+                    className="group block"
+                  >
                     <Card
                       className="h-full relative overflow-hidden border-0 bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 animate-fade-in-up"
-                      style={{ animationDelay: `${index * 100}ms` }}>
+                      style={{ animationDelay: `${index * 100}ms` }}
+                    >
                       <CardContent className="p-8">
                         <div className="flex items-start justify-between mb-6">
                           <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center text-2xl shadow-lg group-hover:scale-110 transition-transform duration-300">
@@ -201,7 +204,8 @@ export default function PracticeAreasPage() {
                 </p>
                 <Link
                   href="/contact"
-                  className="inline-flex items-center bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary text-white px-8 py-4 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 rounded-lg">
+                  className="inline-flex items-center bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary text-white px-8 py-4 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 rounded-lg"
+                >
                   {t("getInTouch")}
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>

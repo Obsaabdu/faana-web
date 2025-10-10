@@ -1,18 +1,18 @@
 "use client";
 
-import { useTranslations } from "next-intl";
-import { Navigation } from "@/components/navigation";
-import { Footer } from "@/components/footer";
+import { motion } from "framer-motion";
 import {
-  Target,
-  Eye,
   Award,
-  Sparkles,
-  Users,
+  Eye,
   Linkedin,
   Mail,
+  Sparkles,
+  Target,
+  Users,
 } from "lucide-react";
-import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
+import { Footer } from "@/components/footer";
+import { Navigation } from "@/components/navigation";
 import { BackgroundShapes } from "@/components/ui/background-shapes";
 import { Link } from "@/i18n/routing";
 
@@ -59,12 +59,14 @@ export default function AboutPage() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="max-w-4xl mx-auto text-center">
+              className="max-w-4xl mx-auto text-center"
+            >
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="mb-6">
+                className="mb-6"
+              >
                 <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full text-sm font-medium text-primary mb-6">
                   <Sparkles className="w-4 h-4" />
                   Building Trust Through Excellence
@@ -75,7 +77,8 @@ export default function AboutPage() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
-                className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+                className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent"
+              >
                 {t("title")}
               </motion.h1>
 
@@ -83,7 +86,8 @@ export default function AboutPage() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
-                className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto">
+                className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto"
+              >
                 {t("subtitle")}
               </motion.p>
             </motion.div>
@@ -100,7 +104,8 @@ export default function AboutPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
-                className="text-3xl md:text-4xl font-bold mb-6">
+                className="text-3xl md:text-4xl font-bold mb-6"
+              >
                 {t("ourStoryTitle")}
               </motion.h2>
               <motion.div
@@ -108,7 +113,8 @@ export default function AboutPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
                 viewport={{ once: true }}
-                className="prose prose-lg dark:prose-invert max-w-none">
+                className="prose prose-lg dark:prose-invert max-w-none"
+              >
                 <p className="text-lg text-muted-foreground leading-relaxed mb-6">
                   {t("ourStoryP1")}
                 </p>
@@ -134,10 +140,12 @@ export default function AboutPage() {
                 transition={{ duration: 0.6 }}
                 viewport={{ once: true }}
                 whileHover={{ y: -5 }}
-                className="p-8 bg-background rounded-lg shadow-sm hover:shadow-lg transition-all">
+                className="p-8 bg-background rounded-lg shadow-sm hover:shadow-lg transition-all"
+              >
                 <motion.div
                   whileHover={{ scale: 1.1, rotate: 5 }}
-                  className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+                  className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4"
+                >
                   <Target className="h-6 w-6 text-primary" />
                 </motion.div>
                 <h3 className="text-2xl font-bold mb-4">{t("missionTitle")}</h3>
@@ -152,10 +160,12 @@ export default function AboutPage() {
                 transition={{ duration: 0.6, delay: 0.1 }}
                 viewport={{ once: true }}
                 whileHover={{ y: -5 }}
-                className="p-8 bg-background rounded-lg shadow-sm hover:shadow-lg transition-all">
+                className="p-8 bg-background rounded-lg shadow-sm hover:shadow-lg transition-all"
+              >
                 <motion.div
                   whileHover={{ scale: 1.1, rotate: 5 }}
-                  className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+                  className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4"
+                >
                   <Eye className="h-6 w-6 text-primary" />
                 </motion.div>
                 <h3 className="text-2xl font-bold mb-4">{t("visionTitle")}</h3>
@@ -170,10 +180,12 @@ export default function AboutPage() {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 viewport={{ once: true }}
                 whileHover={{ y: -5 }}
-                className="p-8 bg-background rounded-lg shadow-sm hover:shadow-lg transition-all">
+                className="p-8 bg-background rounded-lg shadow-sm hover:shadow-lg transition-all"
+              >
                 <motion.div
                   whileHover={{ scale: 1.1, rotate: 5 }}
-                  className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+                  className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4"
+                >
                   <Award className="h-6 w-6 text-primary" />
                 </motion.div>
                 <h3 className="text-2xl font-bold mb-4">{t("valuesTitle")}</h3>
@@ -195,7 +207,8 @@ export default function AboutPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
-                className="text-3xl md:text-4xl font-bold mb-12 text-center">
+                className="text-3xl md:text-4xl font-bold mb-12 text-center"
+              >
                 {t("coreValuesTitle")}
               </motion.h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -228,7 +241,8 @@ export default function AboutPage() {
                     transition={{ duration: 0.6, delay: index * 0.1 }}
                     viewport={{ once: true }}
                     whileHover={{ y: -5 }}
-                    className="p-6 border rounded-lg hover:shadow-lg transition-all bg-background/50 backdrop-blur-sm hover:border-primary/20">
+                    className="p-6 border rounded-lg hover:shadow-lg transition-all bg-background/50 backdrop-blur-sm hover:border-primary/20"
+                  >
                     <h3 className="text-xl font-semibold mb-2">
                       {value.title}
                     </h3>
@@ -249,7 +263,8 @@ export default function AboutPage() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="text-center mb-16">
+              className="text-center mb-16"
+            >
               <div className="flex items-center justify-center gap-3 mb-4">
                 <Users className="h-8 w-8 text-yellow-500" />
                 <h2 className="text-3xl md:text-4xl font-bold">
@@ -308,7 +323,8 @@ export default function AboutPage() {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
                   whileHover={{ y: -10 }}
-                  className="group">
+                  className="group"
+                >
                   <div className="p-8 bg-background/50 backdrop-blur-sm border border-border/50 hover:border-primary/20 transition-all duration-300 hover:shadow-xl rounded-xl">
                     {/* Avatar */}
                     <div className="relative mb-6">
@@ -332,7 +348,8 @@ export default function AboutPage() {
                       {member.expertise.slice(0, 2).map((skill) => (
                         <span
                           key={skill}
-                          className="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full font-medium">
+                          className="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full font-medium"
+                        >
                           {skill}
                         </span>
                       ))}
@@ -351,7 +368,8 @@ export default function AboutPage() {
                           window.location.href = `mailto:${member.email}`;
                         }}
                         className="p-2 rounded-full hover:bg-primary/10 transition-all duration-300 hover:scale-110"
-                        aria-label={`Email ${member.name}`}>
+                        aria-label={`Email ${member.name}`}
+                      >
                         <Mail className="h-5 w-5 text-yellow-500" />
                       </button>
                       <button
@@ -360,7 +378,8 @@ export default function AboutPage() {
                           window.open(member.linkedin, "_blank");
                         }}
                         className="p-2 rounded-full hover:bg-primary/10 transition-all duration-300 hover:scale-110"
-                        aria-label={`LinkedIn profile of ${member.name}`}>
+                        aria-label={`LinkedIn profile of ${member.name}`}
+                      >
                         <Linkedin className="h-5 w-5 text-yellow-500" />
                       </button>
                     </div>
@@ -374,10 +393,12 @@ export default function AboutPage() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
               viewport={{ once: true }}
-              className="text-center mt-12">
+              className="text-center mt-12"
+            >
               <Link
                 href="/team"
-                className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors group">
+                className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors group"
+              >
                 View Full Team
                 <Users className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>

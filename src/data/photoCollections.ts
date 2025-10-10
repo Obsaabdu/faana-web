@@ -157,4 +157,3 @@ export const photoCollections = [
     tags: ["Education", "Seminars", "Law School", "Students"],
   },
 ];
-

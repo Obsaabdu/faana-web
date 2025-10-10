@@ -1,11 +1,15 @@
-import { Newspaper, TrendingUp, Calendar, Tag } from "lucide-react";
+"use client";
+
+import { motion } from "framer-motion";
+import { Calendar, Newspaper, Tag, TrendingUp } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Footer } from "@/components/footer";
 import { Navigation } from "@/components/navigation";
-import { Button } from "@/components/ui/button";
+import { BackgroundShapes } from "@/components/ui/background-shapes";
 import { Badge } from "@/components/ui/badge";
-import { Link } from "@/i18n/routing";
+import { Button } from "@/components/ui/button";
 import { newsArticles } from "@/data/newsArticles";
+import { Link } from "@/i18n/routing";
 
 export default function BlogsPage() {
   const t = useTranslations("BlogsPage");
@@ -86,36 +90,93 @@ export default function BlogsPage() {
       <Navigation />
       <main className="min-h-screen">
         {/* Hero Section */}
-        <section className="py-20 bg-gradient-to-br from-primary/10 via-background to-background">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center max-w-4xl mx-auto">
-              <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
+        <section className="py-20 bg-gradient-to-br from-primary/10 via-background to-background relative overflow-hidden">
+          <BackgroundShapes variant="legal" />
+
+          {/* Animated Background Elements */}
+          <div className="absolute inset-0 overflow-hidden">
+            <motion.div
+              className="absolute -top-40 -right-40 w-80 h-80 bg-primary/5 rounded-full blur-3xl"
+              animate={{
+                scale: [1, 1.2, 1],
+                rotate: [0, 180, 360],
+              }}
+              transition={{
+                duration: 20,
+                repeat: Number.POSITIVE_INFINITY,
+                ease: "linear",
+              }}
+            />
+            <motion.div
+              className="absolute -bottom-40 -left-40 w-96 h-96 bg-primary/5 rounded-full blur-3xl"
+              animate={{
+                scale: [1.2, 1, 1.2],
+                rotate: [360, 180, 0],
+              }}
+              transition={{
+                duration: 25,
+                repeat: Number.POSITIVE_INFINITY,
+                ease: "linear",
+              }}
+            />
+          </div>
+
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="text-center max-w-4xl mx-auto">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
                 <Newspaper className="h-4 w-4" />
                 {t("heroBadge")}
-              </div>
-              <h1 className="text-4xl md:text-6xl font-bold mb-6">
+              </motion.div>
+              <motion.h1
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                className="text-4xl md:text-6xl font-bold mb-6">
                 {t("title")}
-              </h1>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              </motion.h1>
+              <motion.p
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.6 }}
+                className="text-xl text-muted-foreground max-w-3xl mx-auto">
                 {t("subtitle")}
-              </p>
-            </div>
+              </motion.p>
+            </motion.div>
           </div>
         </section>
 
         {/* Featured Post */}
-        <section className="py-20">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="py-20 relative overflow-hidden">
+          <BackgroundShapes variant="corporate" />
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="max-w-6xl mx-auto">
-              <h2 className="text-3xl font-bold mb-12 text-center">
+              <motion.h2
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true }}
+                className="text-3xl font-bold mb-12 text-center">
                 {t("featuredPostTitle")}
-              </h2>
+              </motion.h2>
 
               {blogPosts
                 .filter((post) => post.featured)
                 .map((post) => (
-                  <div
+                  <motion.div
                     key={post.id}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8 }}
+                    viewport={{ once: true }}
+                    whileHover={{ y: -5 }}
                     className="bg-gradient-to-r from-primary/5 to-accent/5 rounded-2xl p-8 border border-primary/20">
                     <div className="flex flex-col lg:flex-row gap-8">
                       <div className="flex-1">
@@ -154,26 +215,37 @@ export default function BlogsPage() {
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </motion.div>
                 ))}
             </div>
           </div>
         </section>
 
         {/* Latest Posts */}
-        <section className="py-20 bg-muted/50">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="py-20 bg-muted/50 relative overflow-hidden">
+          <BackgroundShapes variant="justice" />
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="max-w-6xl mx-auto">
-              <h2 className="text-3xl font-bold mb-12 text-center">
+              <motion.h2
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true }}
+                className="text-3xl font-bold mb-12 text-center">
                 {t("latestPostsTitle")}
-              </h2>
+              </motion.h2>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {blogPosts
                   .filter((post) => !post.featured)
-                  .map((post) => (
-                    <article
+                  .map((post, index) => (
+                    <motion.article
                       key={post.id}
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: index * 0.1 }}
+                      viewport={{ once: true }}
+                      whileHover={{ y: -5 }}
                       className="bg-background border rounded-xl p-6 hover:shadow-lg transition-shadow group">
                       <div className="flex items-center gap-2 mb-4">
                         <Badge
@@ -206,7 +278,7 @@ export default function BlogsPage() {
                           {t("readMore")}
                         </Link>
                       </Button>
-                    </article>
+                    </motion.article>
                   ))}
               </div>
             </div>
@@ -214,17 +286,28 @@ export default function BlogsPage() {
         </section>
 
         {/* Firm News */}
-        <section className="py-20">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="py-20 relative overflow-hidden">
+          <BackgroundShapes variant="team" />
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="max-w-6xl mx-auto">
-              <h2 className="text-3xl font-bold mb-12 text-center">
+              <motion.h2
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true }}
+                className="text-3xl font-bold mb-12 text-center">
                 {t("firmNewsTitle")}
-              </h2>
+              </motion.h2>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                {newsArticles.map((article) => (
-                  <article
+                {newsArticles.map((article, index) => (
+                  <motion.article
                     key={article.id}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                    whileHover={{ y: -5 }}
                     className="bg-background border rounded-xl p-6 hover:shadow-lg transition-shadow group">
                     <div className="flex items-center gap-2 mb-4">
                       <Badge
@@ -252,7 +335,7 @@ export default function BlogsPage() {
                         {t("readMore")}
                       </Link>
                     </Button>
-                  </article>
+                  </motion.article>
                 ))}
               </div>
             </div>
@@ -260,17 +343,28 @@ export default function BlogsPage() {
         </section>
 
         {/* Categories */}
-        <section className="py-20 bg-muted/50">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="py-20 bg-muted/50 relative overflow-hidden">
+          <BackgroundShapes variant="corporate" />
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-3xl font-bold mb-12 text-center">
+              <motion.h2
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true }}
+                className="text-3xl font-bold mb-12 text-center">
                 {t("categoriesTitle")}
-              </h2>
+              </motion.h2>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {categories.map((category) => (
-                  <div
+                {categories.map((category, index) => (
+                  <motion.div
                     key={category.name}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                    whileHover={{ y: -5 }}
                     className="bg-background border rounded-xl p-6 hover:shadow-lg transition-shadow group cursor-pointer">
                     <div className="flex items-center gap-3 mb-3">
                       <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform">
@@ -285,7 +379,7 @@ export default function BlogsPage() {
                         </p>
                       </div>
                     </div>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </div>
@@ -293,7 +387,7 @@ export default function BlogsPage() {
         </section>
 
         {/* Newsletter */}
-        <section className="py-20 bg-primary text-primary-foreground">
+        <section className="py-20 bg-primary/20 dark:bg-card text-primary-foreground dark:text-primary">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               {t("newsletterTitle")}
@@ -305,12 +399,12 @@ export default function BlogsPage() {
               <input
                 type="email"
                 placeholder={t("emailPlaceholder")}
-                className="flex-1 px-4 py-3 rounded-lg text-foreground bg-background/10 border border-background/20 placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-background/50"
+                className="flex-1 px-4 py-2 rounded-lg text-foreground bg-background/10 border border-foreground/50 placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-background/50"
               />
               <Button
                 size="lg"
                 variant="secondary"
-                className="px-8">
+                className="px-8 dark:bg-primary dark:text-primary-foreground">
                 {t("subscribe")}
               </Button>
             </div>

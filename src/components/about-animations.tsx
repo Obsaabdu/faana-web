@@ -2,9 +2,7 @@
 
 export function AboutAnimations() {
   return (
-    <style
-      jsx
-      global>{`
+    <style jsx global>{`
       @keyframes fade-in {
         from {
           opacity: 0;
@@ -57,9 +55,3 @@ export function AboutAnimations() {
     `}</style>
   );
 }
-
-
-
-
-
-

@@ -1,16 +1,16 @@
 import {
-  ChevronRight,
-  Home,
   ArrowRight,
-  CheckCircle,
   Award,
-  Shield,
-  Building,
-  Construction,
-  FileText,
-  Scale,
-  DollarSign,
   BarChart3,
+  Building,
+  CheckCircle,
+  ChevronRight,
+  Construction,
+  DollarSign,
+  FileText,
+  Home,
+  Scale,
+  Shield,
 } from "lucide-react";
 import type { Metadata } from "next";
 import { useTranslations } from "next-intl";
@@ -122,15 +122,11 @@ export default function RealEstatePage() {
         <section className="py-6 bg-muted/50">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
-              <Link
-                href="/"
-                className="hover:text-primary">
+              <Link href="/" className="hover:text-primary">
                 {t("home")}
               </Link>
               <ChevronRight className="h-4 w-4" />
-              <Link
-                href="/practice-areas"
-                className="hover:text-primary">
+              <Link href="/practice-areas" className="hover:text-primary">
                 {t("practiceAreas")}
               </Link>
               <ChevronRight className="h-4 w-4" />
@@ -188,7 +184,8 @@ export default function RealEstatePage() {
                 <div
                   key={stat.label}
                   className="text-center animate-fade-in-up"
-                  style={{ animationDelay: `${index * 200}ms` }}>
+                  style={{ animationDelay: `${index * 200}ms` }}
+                >
                   <div className="w-12 h-12 mx-auto mb-3 rounded-full bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center">
                     <stat.icon className="h-6 w-6 text-primary" />
                   </div>
@@ -275,7 +272,8 @@ export default function RealEstatePage() {
                     <Card
                       key={service.id}
                       className="group relative overflow-hidden border-0 bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 animate-fade-in-up"
-                      style={{ animationDelay: `${index * 100}ms` }}>
+                      style={{ animationDelay: `${index * 100}ms` }}
+                    >
                       <CardContent className="p-8">
                         <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center mb-6 text-2xl shadow-lg group-hover:scale-110 transition-transform duration-300">
                           <Icon className="h-8 w-8 text-white" />
@@ -316,14 +314,13 @@ export default function RealEstatePage() {
                   <Card
                     key={faq.question}
                     className="border-0 shadow-lg bg-gradient-to-r from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 animate-fade-in-up"
-                    style={{ animationDelay: `${index * 100}ms` }}>
-                    <Accordion
-                      type="single"
-                      collapsible
-                      className="w-full">
+                    style={{ animationDelay: `${index * 100}ms` }}
+                  >
+                    <Accordion type="single" collapsible className="w-full">
                       <AccordionItem
                         value={`item-${index}`}
-                        className="border-0">
+                        className="border-0"
+                      >
                         <AccordionTrigger className="text-left hover:no-underline px-6 py-4 hover:bg-primary/5 transition-colors duration-300">
                           <div className="flex items-center">
                             <CheckCircle className="h-5 w-5 text-primary mr-3 flex-shrink-0" />
@@ -358,10 +355,9 @@ export default function RealEstatePage() {
                 <Button
                   asChild
                   size="lg"
-                  className="bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary text-white px-8 py-4 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-                  <Link
-                    href="/contact"
-                    className="flex items-center">
+                  className="bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary text-white px-8 py-4 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+                >
+                  <Link href="/contact" className="flex items-center">
                     {t("contactUs")}
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Link>

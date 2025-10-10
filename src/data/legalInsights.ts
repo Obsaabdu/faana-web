@@ -570,4 +570,3 @@ export const legalInsights = [
     tags: ["Litigation", "Risk Management", "Business Strategy", "Compliance"],
   },
 ];
-

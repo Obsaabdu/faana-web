@@ -1,21 +1,21 @@
 import {
-  Calendar,
-  Clock,
-  User,
   ArrowLeft,
+  BookOpen,
+  Calendar,
+  ChevronRight,
+  Clock,
   Share2,
   Tag,
-  BookOpen,
-  ChevronRight,
+  User,
 } from "lucide-react";
+import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 import { Footer } from "@/components/footer";
 import { Navigation } from "@/components/navigation";
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Link } from "@/i18n/routing";
-import { notFound } from "next/navigation";
+import { Button } from "@/components/ui/button";
 import { legalInsights } from "@/data/legalInsights";
+import { Link } from "@/i18n/routing";
 
 interface InsightDetailPageProps {
   params: {
@@ -26,9 +26,9 @@ interface InsightDetailPageProps {
 
 // Generate static params for all legal insights and locales
 export async function generateStaticParams() {
-  const locales = ['en', 'am', 'or'];
+  const locales = ["en", "am", "or"];
   const params: { locale: string; slug: string }[] = [];
-  
+
   for (const locale of locales) {
     for (const insight of legalInsights) {
       params.push({
@@ -37,7 +37,7 @@ export async function generateStaticParams() {
       });
     }
   }
-  
+
   return params;
 }
 
@@ -88,15 +88,14 @@ export default async function InsightDetailPage({
         <section className="py-8 bg-muted/30">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <nav className="flex items-center gap-2 text-sm text-muted-foreground">
-              <Link
-                href="/"
-                className="hover:text-primary transition-colors">
+              <Link href="/" className="hover:text-primary transition-colors">
                 {t("home")}
               </Link>
               <ChevronRight className="h-4 w-4" />
               <Link
                 href="/legal-insights"
-                className="hover:text-primary transition-colors">
+                className="hover:text-primary transition-colors"
+              >
                 {t("insights")}
               </Link>
               <ChevronRight className="h-4 w-4" />
@@ -110,13 +109,11 @@ export default async function InsightDetailPage({
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto">
               <div className="mb-6">
-                <Button
-                  asChild
-                  variant="ghost"
-                  className="mb-4">
+                <Button asChild variant="ghost" className="mb-4">
                   <Link
                     href="/legal-insights"
-                    className="flex items-center gap-2">
+                    className="flex items-center gap-2"
+                  >
                     <ArrowLeft className="h-4 w-4" />
                     {t("backToInsights")}
                   </Link>
@@ -125,7 +122,8 @@ export default async function InsightDetailPage({
                 <div className="flex items-center gap-2 mb-4">
                   <Badge
                     variant="secondary"
-                    className="bg-primary/10 text-primary">
+                    className="bg-primary/10 text-primary"
+                  >
                     {insight.category}
                   </Badge>
                   <div className="flex items-center gap-2 text-sm text-muted-foreground">
@@ -163,7 +161,8 @@ export default async function InsightDetailPage({
                 <Button
                   variant="outline"
                   size="sm"
-                  className="flex items-center gap-2">
+                  className="flex items-center gap-2"
+                >
                   <Share2 className="h-4 w-4" />
                   {t("share")}
                 </Button>
@@ -189,10 +188,7 @@ export default async function InsightDetailPage({
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {insight.tags.map((tag) => (
-                    <Badge
-                      key={tag}
-                      variant="outline"
-                      className="text-sm">
+                    <Badge key={tag} variant="outline" className="text-sm">
                       {tag}
                     </Badge>
                   ))}
@@ -215,11 +211,10 @@ export default async function InsightDetailPage({
                   {relatedInsights.map((relatedInsight) => (
                     <article
                       key={relatedInsight.id}
-                      className="bg-background border rounded-xl p-6 hover:shadow-lg transition-shadow group">
+                      className="bg-background border rounded-xl p-6 hover:shadow-lg transition-shadow group"
+                    >
                       <div className="flex items-center gap-2 mb-4">
-                        <Badge
-                          variant="outline"
-                          className="text-xs">
+                        <Badge variant="outline" className="text-xs">
                           {relatedInsight.category}
                         </Badge>
                       </div>
@@ -239,10 +234,7 @@ export default async function InsightDetailPage({
                           {relatedInsight.readTime}
                         </div>
                       </div>
-                      <Button
-                        asChild
-                        variant="outline"
-                        className="w-full">
+                      <Button asChild variant="outline" className="w-full">
                         <Link href={`/insights/${relatedInsight.slug}`}>
                           {t("readMore")}
                         </Link>
@@ -256,7 +248,7 @@ export default async function InsightDetailPage({
         )}
 
         {/* Newsletter CTA */}
-        <section className="py-20 bg-primary text-primary-foreground">
+        <section className="py-20 bg-primary/20 dark:bg-card text-primary-foreground dark:text-primary">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div className="max-w-2xl mx-auto">
               <BookOpen className="h-16 w-16 mx-auto mb-6 opacity-80" />
@@ -268,12 +260,13 @@ export default async function InsightDetailPage({
                 <input
                   type="email"
                   placeholder={t("emailPlaceholder")}
-                  className="flex-1 px-4 py-3 rounded-lg text-foreground bg-background/10 border border-background/20 placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-background/50"
+                  className="flex-1 px-4 py-2 rounded-lg text-foreground bg-background/10 border border-primary/20 placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
                 />
                 <Button
                   size="lg"
                   variant="secondary"
-                  className="px-8">
+                  className="px-8 dark:bg-primary dark:text-primary-foreground"
+                >
                   {t("subscribe")}
                 </Button>
               </div>

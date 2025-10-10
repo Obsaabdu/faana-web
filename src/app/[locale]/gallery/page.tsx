@@ -1,24 +1,24 @@
 "use client";
 
-import { Navigation } from "@/components/navigation";
-import { Footer } from "@/components/footer";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import { motion } from "framer-motion";
 import {
-  Camera,
-  Calendar,
-  MapPin,
-  Users,
+  ArrowRight,
   Award,
   Building,
-  ArrowRight,
+  Calendar,
+  Camera,
   Filter,
   Grid,
   List,
+  MapPin,
+  Users,
 } from "lucide-react";
-import { motion } from "framer-motion";
+import { Footer } from "@/components/footer";
+import { Navigation } from "@/components/navigation";
 import { BackgroundShapes } from "@/components/ui/background-shapes";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 import { photoCollections } from "@/data/photoCollections";
 import { Link } from "@/i18n/routing";
 
@@ -84,12 +84,14 @@ export default function GalleryPage() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="max-w-4xl mx-auto text-center">
+              className="max-w-4xl mx-auto text-center"
+            >
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="mb-6">
+                className="mb-6"
+              >
                 <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full text-sm font-medium text-primary mb-6">
                   <Camera className="w-4 h-4 text-yellow-500" />
                   Behind the Scenes
@@ -100,7 +102,8 @@ export default function GalleryPage() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
-                className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+                className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent"
+              >
                 Gallery
               </motion.h1>
 
@@ -108,7 +111,8 @@ export default function GalleryPage() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
-                className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto">
+                className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto"
+              >
                 Explore our office, events, team activities, and community
                 involvement through our photo gallery.
               </motion.p>
@@ -124,36 +128,29 @@ export default function GalleryPage() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="flex flex-col md:flex-row gap-4 items-center justify-between">
+              className="flex flex-col md:flex-row gap-4 items-center justify-between"
+            >
               <div className="flex items-center gap-4">
                 <div className="flex items-center gap-2">
                   <Filter className="w-4 h-4 text-muted-foreground" />
                   <select className="px-3 py-2 border border-border rounded-lg bg-background focus:outline-none focus:ring-2 focus:ring-primary/20">
                     {categories.map((category) => (
-                      <option
-                        key={category}
-                        value={category}>
+                      <option key={category} value={category}>
                         {category}
                       </option>
                     ))}
                   </select>
                 </div>
-                <Badge
-                  variant="outline"
-                  className="text-sm">
+                <Badge variant="outline" className="text-sm">
                   456 Photos
                 </Badge>
               </div>
               <div className="flex items-center gap-2">
-                <Button
-                  variant="outline"
-                  size="sm">
+                <Button variant="outline" size="sm">
                   <Grid className="w-4 h-4 mr-2" />
                   Grid
                 </Button>
-                <Button
-                  variant="ghost"
-                  size="sm">
+                <Button variant="ghost" size="sm">
                   <List className="w-4 h-4 mr-2" />
                   List
                 </Button>
@@ -171,7 +168,8 @@ export default function GalleryPage() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="text-center mb-16">
+              className="text-center mb-16"
+            >
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
                 Photo Collections
               </h2>
@@ -190,18 +188,18 @@ export default function GalleryPage() {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
                   whileHover={{ y: -10 }}
-                  className="group">
+                  className="group"
+                >
                   <Card className="h-full bg-background/50 backdrop-blur-sm border-border/50 hover:border-primary/20 transition-all duration-300 hover:shadow-xl overflow-hidden">
                     <div className="relative h-48 bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
                       <motion.div
                         whileHover={{ scale: 1.1, rotate: 5 }}
-                        className="flex-shrink-0">
+                        className="flex-shrink-0"
+                      >
                         <item.icon className="h-16 w-16 text-yellow-500 group-hover:text-yellow-400 transition-colors" />
                       </motion.div>
                       <div className="absolute top-4 right-4">
-                        <Badge
-                          variant="secondary"
-                          className="text-xs">
+                        <Badge variant="secondary" className="text-xs">
                           {item.category}
                         </Badge>
                       </div>
@@ -232,7 +230,8 @@ export default function GalleryPage() {
                       <Button
                         asChild
                         variant="outline"
-                        className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                        className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors"
+                      >
                         <Link href={`/photos/${item.id}`}>
                           View Gallery
                           <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
@@ -249,10 +248,9 @@ export default function GalleryPage() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
               viewport={{ once: true }}
-              className="text-center mt-12">
-              <Button
-                size="lg"
-                variant="outline">
+              className="text-center mt-12"
+            >
+              <Button size="lg" variant="outline">
                 Load More Collections
               </Button>
             </motion.div>
@@ -268,7 +266,8 @@ export default function GalleryPage() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="text-center mb-16">
+              className="text-center mb-16"
+            >
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
                 Featured Photos
               </h2>
@@ -280,7 +279,7 @@ export default function GalleryPage() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {Array.from(
                 { length: 8 },
-                (_, index) => `featured-photo-${index}`
+                (_, index) => `featured-photo-${index}`,
               ).map((photoId, index) => (
                 <motion.div
                   key={photoId}
@@ -289,7 +288,8 @@ export default function GalleryPage() {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
                   whileHover={{ scale: 1.05 }}
-                  className="aspect-square bg-gradient-to-br from-primary/20 to-primary/5 rounded-lg flex items-center justify-center cursor-pointer group hover:shadow-lg transition-all duration-300">
+                  className="aspect-square bg-gradient-to-br from-primary/20 to-primary/5 rounded-lg flex items-center justify-center cursor-pointer group hover:shadow-lg transition-all duration-300"
+                >
                   <Camera className="h-8 w-8 text-yellow-500 group-hover:text-yellow-400 transition-colors" />
                 </motion.div>
               ))}
@@ -298,14 +298,15 @@ export default function GalleryPage() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-20 bg-primary text-primary-foreground relative overflow-hidden">
+        <section className="py-20 bg-primary/20 dark:bg-card dark:text-primary relative overflow-hidden">
           <BackgroundShapes variant="team" />
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              viewport={{ once: true }}>
+              viewport={{ once: true }}
+            >
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
                 Join Our Community
               </h2>
@@ -317,14 +318,16 @@ export default function GalleryPage() {
                 <Button
                   size="lg"
                   variant="secondary"
-                  className="group">
+                  className="group dark:bg-primary dark:text-primary-foreground"
+                >
                   Follow on Instagram
                   <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                 </Button>
                 <Button
                   size="lg"
                   variant="secondary"
-                  className="group">
+                  className="group dark:bg-primary dark:text-primary-foreground"
+                >
                   Connect on LinkedIn
                   <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                 </Button>

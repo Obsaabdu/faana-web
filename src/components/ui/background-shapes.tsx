@@ -19,25 +19,16 @@ export function BackgroundShapes({
               <svg
                 viewBox="0 0 100 100"
                 className="w-full h-full text-primary"
-                aria-label="Scale of justice">
+                aria-label="Scale of justice"
+              >
                 <title>Scale of justice</title>
                 <path
                   d="M50 10 L30 40 L70 40 Z"
                   fill="currentColor"
                   className="drop-shadow-lg"
                 />
-                <circle
-                  cx="30"
-                  cy="45"
-                  r="8"
-                  fill="currentColor"
-                />
-                <circle
-                  cx="70"
-                  cy="45"
-                  r="8"
-                  fill="currentColor"
-                />
+                <circle cx="30" cy="45" r="8" fill="currentColor" />
+                <circle cx="70" cy="45" r="8" fill="currentColor" />
                 <rect
                   x="45"
                   y="50"
@@ -74,7 +65,8 @@ export function BackgroundShapes({
               <svg
                 viewBox="0 0 100 60"
                 className="w-full h-full text-primary"
-                aria-label="Growth chart">
+                aria-label="Growth chart"
+              >
                 <title>Growth chart</title>
                 <polyline
                   points="10,50 30,40 50,30 70,20 90,10"
@@ -83,36 +75,11 @@ export function BackgroundShapes({
                   fill="none"
                   className="drop-shadow-lg"
                 />
-                <circle
-                  cx="10"
-                  cy="50"
-                  r="3"
-                  fill="currentColor"
-                />
-                <circle
-                  cx="30"
-                  cy="40"
-                  r="3"
-                  fill="currentColor"
-                />
-                <circle
-                  cx="50"
-                  cy="30"
-                  r="3"
-                  fill="currentColor"
-                />
-                <circle
-                  cx="70"
-                  cy="20"
-                  r="3"
-                  fill="currentColor"
-                />
-                <circle
-                  cx="90"
-                  cy="10"
-                  r="3"
-                  fill="currentColor"
-                />
+                <circle cx="10" cy="50" r="3" fill="currentColor" />
+                <circle cx="30" cy="40" r="3" fill="currentColor" />
+                <circle cx="50" cy="30" r="3" fill="currentColor" />
+                <circle cx="70" cy="20" r="3" fill="currentColor" />
+                <circle cx="90" cy="10" r="3" fill="currentColor" />
               </svg>
             </div>
           </>
@@ -125,7 +92,8 @@ export function BackgroundShapes({
               <svg
                 viewBox="0 0 80 80"
                 className="w-full h-full text-primary"
-                aria-label="Gavel">
+                aria-label="Gavel"
+              >
                 <title>Gavel</title>
                 <rect
                   x="35"
@@ -157,32 +125,17 @@ export function BackgroundShapes({
               <svg
                 viewBox="0 0 100 100"
                 className="w-full h-full text-primary"
-                aria-label="Scales of justice">
+                aria-label="Scales of justice"
+              >
                 <title>Scales of justice</title>
                 <path
                   d="M50 10 L30 40 L70 40 Z"
                   fill="currentColor"
                   className="drop-shadow-lg"
                 />
-                <circle
-                  cx="30"
-                  cy="45"
-                  r="6"
-                  fill="currentColor"
-                />
-                <circle
-                  cx="70"
-                  cy="45"
-                  r="6"
-                  fill="currentColor"
-                />
-                <rect
-                  x="47"
-                  y="50"
-                  width="6"
-                  height="30"
-                  fill="currentColor"
-                />
+                <circle cx="30" cy="45" r="6" fill="currentColor" />
+                <circle cx="70" cy="45" r="6" fill="currentColor" />
+                <rect x="47" y="50" width="6" height="30" fill="currentColor" />
               </svg>
             </div>
           </>
@@ -203,7 +156,8 @@ export function BackgroundShapes({
               <svg
                 viewBox="0 0 80 80"
                 className="w-full h-full text-primary"
-                aria-label="Handshake">
+                aria-label="Handshake"
+              >
                 <title>Handshake</title>
                 <path
                   d="M20 40 Q30 30 40 40 Q50 30 60 40"
@@ -212,18 +166,8 @@ export function BackgroundShapes({
                   fill="none"
                   className="drop-shadow-lg"
                 />
-                <circle
-                  cx="20"
-                  cy="40"
-                  r="6"
-                  fill="currentColor"
-                />
-                <circle
-                  cx="60"
-                  cy="40"
-                  r="6"
-                  fill="currentColor"
-                />
+                <circle cx="20" cy="40" r="6" fill="currentColor" />
+                <circle cx="60" cy="40" r="6" fill="currentColor" />
               </svg>
             </div>
           </>
@@ -237,8 +181,9 @@ export function BackgroundShapes({
     <div
       className={cn(
         "absolute inset-0 overflow-hidden pointer-events-none",
-        className
-      )}>
+        className,
+      )}
+    >
       {getShapes()}
     </div>
   );

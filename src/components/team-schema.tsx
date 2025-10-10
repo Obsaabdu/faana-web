@@ -55,9 +55,3 @@ export function TeamSchema({ members }: TeamSchemaProps) {
 
   return null;
 }
-
-
-
-
-
-

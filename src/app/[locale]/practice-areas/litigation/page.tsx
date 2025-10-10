@@ -1,4 +1,12 @@
-import { ChevronRight, Gavel, Scale, Shield, Award } from "lucide-react";
+import {
+  ArrowRight,
+  Award,
+  CheckCircle,
+  ChevronRight,
+  Gavel,
+  Scale,
+  Shield,
+} from "lucide-react";
 import type { Metadata } from "next";
 import { useTranslations } from "next-intl";
 import { Footer } from "@/components/footer";
@@ -9,8 +17,9 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
 import { Link } from "@/i18n/routing";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -109,15 +118,11 @@ export default function LitigationPage() {
         <section className="py-6 bg-muted/50">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
-              <Link
-                href="/"
-                className="hover:text-primary">
+              <Link href="/" className="hover:text-primary">
                 {t("home")}
               </Link>
               <ChevronRight className="h-4 w-4" />
-              <Link
-                href="/practice-areas"
-                className="hover:text-primary">
+              <Link href="/practice-areas" className="hover:text-primary">
                 {t("practiceAreas")}
               </Link>
               <ChevronRight className="h-4 w-4" />
@@ -129,19 +134,19 @@ export default function LitigationPage() {
         {/* Hero Section */}
         <section className="relative py-20 overflow-hidden">
           {/* Animated Background */}
-          <div className="absolute inset-0 bg-gradient-to-br from-red-500/20 via-primary/5 to-background">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(239,68,68,0.1),transparent_50%)]" />
-            <div className="absolute top-0 right-1/4 w-96 h-96 bg-red-500/5 rounded-full blur-3xl animate-pulse" />
-            <div className="absolute bottom-0 left-1/4 w-80 h-80 bg-primary/5 rounded-full blur-3xl animate-pulse delay-1000" />
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-primary/5 to-background">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(120,119,198,0.1),transparent_50%)]" />
+            <div className="absolute top-0 right-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-pulse" />
+            <div className="absolute bottom-0 left-1/4 w-80 h-80 bg-blue-500/5 rounded-full blur-3xl animate-pulse delay-1000" />
           </div>
 
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
             <div className="flex items-start gap-6 mb-8">
-              <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-red-500 to-red-600 flex items-center justify-center flex-shrink-0 shadow-lg animate-bounce">
+              <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center flex-shrink-0 shadow-lg animate-bounce">
                 <Gavel className="h-10 w-10 text-white" />
               </div>
               <div className="flex-1">
-                <Badge className="mb-4 bg-red-500/10 text-red-600 border-red-500/20 animate-fade-in">
+                <Badge className="mb-4 bg-primary/10 text-primary border-primary/20 animate-fade-in">
                   Aggressive Legal Advocacy
                 </Badge>
                 <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent animate-slide-up">
@@ -175,7 +180,8 @@ export default function LitigationPage() {
                 <div
                   key={stat.label}
                   className="text-center animate-fade-in-up"
-                  style={{ animationDelay: `${index * 200}ms` }}>
+                  style={{ animationDelay: `${index * 200}ms` }}
+                >
                   <div className="w-12 h-12 mx-auto mb-3 rounded-full bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center">
                     <stat.icon className="h-6 w-6 text-primary" />
                   </div>
@@ -248,7 +254,8 @@ export default function LitigationPage() {
                 ].map((service) => (
                   <div
                     key={service.id}
-                    className="p-6 bg-background border rounded-lg hover:shadow-lg transition-shadow">
+                    className="p-6 bg-background border rounded-lg hover:shadow-lg transition-shadow"
+                  >
                     <h3 className="text-xl font-semibold mb-2">
                       {service.title}
                     </h3>
@@ -261,48 +268,78 @@ export default function LitigationPage() {
         </section>
 
         {/* FAQ Section */}
-        <section className="py-20">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="py-20 bg-gradient-to-b from-background to-muted/30 relative overflow-hidden">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_20%,rgba(120,119,198,0.1),transparent_50%)]" />
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-3xl font-bold mb-8">{t("faqTitle")}</h2>
-              <Accordion
-                type="single"
-                collapsible
-                className="w-full">
-                <AccordionItem value="item-1">
-                  <AccordionTrigger>{t("faq1Question")}</AccordionTrigger>
-                  <AccordionContent>{t("faq1Answer")}</AccordionContent>
-                </AccordionItem>
-                <AccordionItem value="item-2">
-                  <AccordionTrigger>{t("faq2Question")}</AccordionTrigger>
-                  <AccordionContent>{t("faq2Answer")}</AccordionContent>
-                </AccordionItem>
-                <AccordionItem value="item-3">
-                  <AccordionTrigger>{t("faq3Question")}</AccordionTrigger>
-                  <AccordionContent>{t("faq3Answer")}</AccordionContent>
-                </AccordionItem>
-                <AccordionItem value="item-4">
-                  <AccordionTrigger>{t("faq4Question")}</AccordionTrigger>
-                  <AccordionContent>{t("faq4Answer")}</AccordionContent>
-                </AccordionItem>
-              </Accordion>
+              <div className="text-center mb-16 animate-fade-in-up">
+                <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+                  {t("faqTitle")}
+                </h2>
+                <div className="w-24 h-1 bg-gradient-to-r from-primary to-primary/50 mx-auto rounded-full" />
+              </div>
+              <div className="space-y-4">
+                {[
+                  { question: t("faq1Question"), answer: t("faq1Answer") },
+                  { question: t("faq2Question"), answer: t("faq2Answer") },
+                  { question: t("faq3Question"), answer: t("faq3Answer") },
+                  { question: t("faq4Question"), answer: t("faq4Answer") },
+                ].map((faq, index) => (
+                  <Card
+                    key={faq.question}
+                    className="border-0 shadow-lg bg-gradient-to-r from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 animate-fade-in-up"
+                    style={{ animationDelay: `${index * 100}ms` }}
+                  >
+                    <Accordion type="single" collapsible className="w-full">
+                      <AccordionItem
+                        value={`item-${index}`}
+                        className="border-0"
+                      >
+                        <AccordionTrigger className="text-left hover:no-underline px-6 py-4 hover:bg-primary/5 transition-colors duration-300">
+                          <div className="flex items-center">
+                            <CheckCircle className="h-5 w-5 text-primary mr-3 flex-shrink-0" />
+                            <span className="font-semibold">
+                              {faq.question}
+                            </span>
+                          </div>
+                        </AccordionTrigger>
+                        <AccordionContent className="px-6 pb-4 text-muted-foreground leading-relaxed">
+                          {faq.answer}
+                        </AccordionContent>
+                      </AccordionItem>
+                    </Accordion>
+                  </Card>
+                ))}
+              </div>
             </div>
           </div>
         </section>
 
         {/* CTA */}
-        <section className="py-20">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="py-20 relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-primary/5 to-background">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(120,119,198,0.1),transparent_50%)]" />
+          </div>
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
             <div className="max-w-4xl mx-auto text-center">
-              <h2 className="text-3xl font-bold mb-4">{t("ctaTitle")}</h2>
-              <p className="text-lg text-muted-foreground mb-8">
-                {t("ctaDesc")}
-              </p>
-              <Button
-                asChild
-                size="lg">
-                <Link href="/contact">{t("contactUs")}</Link>
-              </Button>
+              <div className="bg-gradient-to-r from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 rounded-3xl p-12 shadow-2xl animate-fade-in-up">
+                <h2 className="text-4xl font-bold mb-6 bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+                  {t("ctaTitle")}
+                </h2>
+                <p className="text-xl text-muted-foreground mb-10 leading-relaxed">
+                  {t("ctaDesc")}
+                </p>
+                <Button
+                  asChild
+                  size="lg"
+                  className="bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary text-white px-8 py-4 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+                >
+                  <Link href="/contact" className="flex items-center">
+                    {t("contactUs")}
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Link>
+                </Button>
+              </div>
             </div>
           </div>
         </section>

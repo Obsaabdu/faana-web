@@ -215,4 +215,3 @@ export const newsArticles = [
     tags: ["Events", "Conference", "Technology Law", "Speaking Engagement"],
   },
 ];
-

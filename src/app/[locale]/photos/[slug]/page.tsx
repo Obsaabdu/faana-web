@@ -1,21 +1,21 @@
 import {
-  Calendar,
   ArrowLeft,
-  Share2,
+  Calendar,
   Camera,
-  Download,
   ChevronRight,
+  Download,
   Image as ImageIcon,
+  Share2,
 } from "lucide-react";
+import Image from "next/image";
+import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 import { Footer } from "@/components/footer";
 import { Navigation } from "@/components/navigation";
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Link } from "@/i18n/routing";
-import { notFound } from "next/navigation";
-import Image from "next/image";
+import { Button } from "@/components/ui/button";
 import { photoCollections } from "@/data/photoCollections";
+import { Link } from "@/i18n/routing";
 
 interface PhotoCollectionPageProps {
   params: {
@@ -26,9 +26,9 @@ interface PhotoCollectionPageProps {
 
 // Generate static params for all photo collections and locales
 export async function generateStaticParams() {
-  const locales = ['en', 'am', 'or'];
+  const locales = ["en", "am", "or"];
   const params: { locale: string; slug: string }[] = [];
-  
+
   for (const locale of locales) {
     for (const collection of photoCollections) {
       params.push({
@@ -37,7 +37,7 @@ export async function generateStaticParams() {
       });
     }
   }
-  
+
   return params;
 }
 
@@ -88,15 +88,14 @@ export default async function PhotoCollectionPage({
         <section className="py-8 bg-muted/30">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <nav className="flex items-center gap-2 text-sm text-muted-foreground">
-              <Link
-                href="/"
-                className="hover:text-primary transition-colors">
+              <Link href="/" className="hover:text-primary transition-colors">
                 {t("home")}
               </Link>
               <ChevronRight className="h-4 w-4" />
               <Link
                 href="/blogs"
-                className="hover:text-primary transition-colors">
+                className="hover:text-primary transition-colors"
+              >
                 {t("photos")}
               </Link>
               <ChevronRight className="h-4 w-4" />
@@ -110,13 +109,8 @@ export default async function PhotoCollectionPage({
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-6xl mx-auto">
               <div className="mb-6">
-                <Button
-                  asChild
-                  variant="ghost"
-                  className="mb-4">
-                  <Link
-                    href="/blogs"
-                    className="flex items-center gap-2">
+                <Button asChild variant="ghost" className="mb-4">
+                  <Link href="/blogs" className="flex items-center gap-2">
                     <ArrowLeft className="h-4 w-4" />
                     {t("backToGallery")}
                   </Link>
@@ -125,7 +119,8 @@ export default async function PhotoCollectionPage({
                 <div className="flex items-center gap-2 mb-4">
                   <Badge
                     variant="secondary"
-                    className="bg-primary/10 text-primary">
+                    className="bg-primary/10 text-primary"
+                  >
                     {collection.category}
                   </Badge>
                   <div className="flex items-center gap-2 text-sm text-muted-foreground">
@@ -166,7 +161,8 @@ export default async function PhotoCollectionPage({
                 <Button
                   variant="outline"
                   size="sm"
-                  className="flex items-center gap-2">
+                  className="flex items-center gap-2"
+                >
                   <Share2 className="h-4 w-4" />
                   {t("share")}
                 </Button>
@@ -183,7 +179,8 @@ export default async function PhotoCollectionPage({
                 {collection.photos.map((photo) => (
                   <div
                     key={photo.id}
-                    className="group relative aspect-[4/3] bg-muted rounded-xl overflow-hidden cursor-pointer hover:shadow-xl transition-all duration-300">
+                    className="group relative aspect-[4/3] bg-muted rounded-xl overflow-hidden cursor-pointer hover:shadow-xl transition-all duration-300"
+                  >
                     <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
                       <ImageIcon className="h-16 w-16 text-primary/40" />
                     </div>
@@ -198,7 +195,8 @@ export default async function PhotoCollectionPage({
                       <Button
                         size="sm"
                         variant="secondary"
-                        className="h-8 w-8 p-0">
+                        className="h-8 w-8 p-0"
+                      >
                         <Download className="h-4 w-4" />
                       </Button>
                     </div>
@@ -214,10 +212,7 @@ export default async function PhotoCollectionPage({
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {collection.tags.map((tag) => (
-                    <Badge
-                      key={tag}
-                      variant="outline"
-                      className="text-sm">
+                    <Badge key={tag} variant="outline" className="text-sm">
                       {tag}
                     </Badge>
                   ))}
@@ -240,15 +235,14 @@ export default async function PhotoCollectionPage({
                   {relatedCollections.map((relatedCollection) => (
                     <article
                       key={relatedCollection.id}
-                      className="bg-background border rounded-xl overflow-hidden hover:shadow-lg transition-shadow group">
+                      className="bg-background border rounded-xl overflow-hidden hover:shadow-lg transition-shadow group"
+                    >
                       <div className="aspect-video bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
                         <ImageIcon className="h-16 w-16 text-primary/40" />
                       </div>
                       <div className="p-6">
                         <div className="flex items-center gap-2 mb-4">
-                          <Badge
-                            variant="outline"
-                            className="text-xs">
+                          <Badge variant="outline" className="text-xs">
                             {relatedCollection.category}
                           </Badge>
                           <div className="flex items-center gap-2 text-xs text-muted-foreground">
@@ -266,10 +260,7 @@ export default async function PhotoCollectionPage({
                           <Calendar className="h-4 w-4" />
                           {relatedCollection.date}
                         </div>
-                        <Button
-                          asChild
-                          variant="outline"
-                          className="w-full">
+                        <Button asChild variant="outline" className="w-full">
                           <Link href={`/photos/${relatedCollection.slug}`}>
                             {t("viewCollection")}
                           </Link>

@@ -1,5 +1,4 @@
-import { redirect } from "next/navigation";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 
 interface PracticeAreaPageProps {
   params: {
@@ -29,7 +28,3 @@ export default function PracticeAreaPage({ params }: PracticeAreaPageProps) {
   // If area doesn't exist, show 404
   notFound();
 }
-
-
-
-

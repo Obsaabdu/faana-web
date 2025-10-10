@@ -1,20 +1,20 @@
 "use client";
 
 import {
+  ArrowLeft,
+  Award,
+  BookOpen,
+  ExternalLink,
+  Globe,
+  GraduationCap,
   Linkedin,
   Mail,
-  ExternalLink,
-  GraduationCap,
-  BookOpen,
-  Award,
-  Globe,
-  ArrowLeft,
   Sparkles,
   Star,
   Zap,
 } from "lucide-react";
-import { useRouter, useParams } from "next/navigation";
-import { useEffect, useState, use } from "react";
+import { useParams, useRouter } from "next/navigation";
+import { use, useEffect, useState } from "react";
 import { Footer } from "@/components/footer";
 import { Navigation } from "@/components/navigation";
 import { Button } from "@/components/ui/button";
@@ -318,7 +318,8 @@ export default function ProfilePage({ params }: ProfilePageProps) {
             </p>
             <Button
               onClick={() => router.push(`/${locale}/team`)}
-              variant="outline">
+              variant="outline"
+            >
               <ArrowLeft className="h-4 w-4 mr-2" />
               Back to Team
             </Button>
@@ -394,11 +395,13 @@ export default function ProfilePage({ params }: ProfilePageProps) {
                 isVisible
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-10"
-              }`}>
+              }`}
+            >
               <Button
                 onClick={() => router.back()}
                 variant="ghost"
-                className="mb-8 group hover:bg-primary/10 transition-all duration-300">
+                className="mb-8 group hover:bg-primary/10 transition-all duration-300"
+              >
                 <ArrowLeft className="h-4 w-4 mr-2 group-hover:-translate-x-1 transition-transform duration-300" />
                 Back to Team
               </Button>
@@ -436,7 +439,8 @@ export default function ProfilePage({ params }: ProfilePageProps) {
                   <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
                     <a
                       href={`mailto:${member.email}`}
-                      className="group flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-primary to-primary/80 text-primary-foreground rounded-xl hover:shadow-lg hover:shadow-primary/25 transition-all duration-300 hover:scale-105">
+                      className="group flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-primary to-primary/80 text-primary-foreground rounded-xl hover:shadow-lg hover:shadow-primary/25 transition-all duration-300 hover:scale-105"
+                    >
                       <Mail className="h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
                       Email
                     </a>
@@ -444,7 +448,8 @@ export default function ProfilePage({ params }: ProfilePageProps) {
                       href={member.linkedin}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group flex items-center justify-center gap-2 px-8 py-4 border-2 border-primary text-primary rounded-xl hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/25">
+                      className="group flex items-center justify-center gap-2 px-8 py-4 border-2 border-primary text-primary rounded-xl hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/25"
+                    >
                       <Linkedin className="h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
                       LinkedIn
                     </a>
@@ -466,7 +471,8 @@ export default function ProfilePage({ params }: ProfilePageProps) {
                   isVisible
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-10"
-                }`}>
+                }`}
+              >
                 <div className="flex items-center gap-4 mb-8">
                   <div className="p-3 rounded-full bg-gradient-to-r from-primary/20 to-primary/10">
                     <Award className="h-8 w-8 text-primary" />
@@ -480,7 +486,8 @@ export default function ProfilePage({ params }: ProfilePageProps) {
                     <span
                       key={skill}
                       className="group px-6 py-3 bg-gradient-to-r from-primary/10 to-primary/5 text-primary text-sm rounded-full font-medium border border-primary/20 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 hover:scale-105"
-                      style={{ animationDelay: `${index * 100}ms` }}>
+                      style={{ animationDelay: `${index * 100}ms` }}
+                    >
                       <Star className="inline h-4 w-4 mr-2 group-hover:rotate-12 transition-transform duration-300" />
                       {skill}
                     </span>
@@ -494,7 +501,8 @@ export default function ProfilePage({ params }: ProfilePageProps) {
                   isVisible
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-10"
-                }`}>
+                }`}
+              >
                 <div className="flex items-center gap-4 mb-8">
                   <div className="p-3 rounded-full bg-gradient-to-r from-primary/20 to-primary/10">
                     <GraduationCap className="h-8 w-8 text-primary" />
@@ -508,7 +516,8 @@ export default function ProfilePage({ params }: ProfilePageProps) {
                     <div
                       key={`${edu.institution}-${edu.degree}`}
                       className="group relative bg-gradient-to-r from-background via-primary/5 to-background border border-primary/20 rounded-2xl p-6 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/10 transition-all duration-500 hover:scale-105"
-                      style={{ animationDelay: `${index * 200}ms` }}>
+                      style={{ animationDelay: `${index * 200}ms` }}
+                    >
                       <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-primary to-primary/50 rounded-l-2xl"></div>
                       <div className="pl-4">
                         <div className="font-bold text-xl text-primary mb-2">
@@ -533,7 +542,8 @@ export default function ProfilePage({ params }: ProfilePageProps) {
                     isVisible
                       ? "opacity-100 translate-y-0"
                       : "opacity-0 translate-y-10"
-                  }`}>
+                  }`}
+                >
                   <div className="flex items-center gap-4 mb-8">
                     <div className="p-3 rounded-full bg-gradient-to-r from-primary/20 to-primary/10">
                       <BookOpen className="h-8 w-8 text-primary" />
@@ -547,12 +557,14 @@ export default function ProfilePage({ params }: ProfilePageProps) {
                       <div
                         key={pub.title}
                         className="group bg-gradient-to-r from-background via-primary/5 to-background border border-primary/20 rounded-2xl p-8 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/10 transition-all duration-500 hover:scale-105"
-                        style={{ animationDelay: `${index * 200}ms` }}>
+                        style={{ animationDelay: `${index * 200}ms` }}
+                      >
                         <a
                           href={pub.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="group/link text-primary hover:text-primary/80 font-bold text-xl flex items-center gap-3 mb-3 transition-colors duration-300">
+                          className="group/link text-primary hover:text-primary/80 font-bold text-xl flex items-center gap-3 mb-3 transition-colors duration-300"
+                        >
                           <Zap className="h-5 w-5 group-hover/link:rotate-12 transition-transform duration-300" />
                           {pub.title}
                           <ExternalLink className="h-5 w-5 group-hover/link:scale-110 transition-transform duration-300" />
@@ -572,7 +584,8 @@ export default function ProfilePage({ params }: ProfilePageProps) {
                   isVisible
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-10"
-                }`}>
+                }`}
+              >
                 <div className="flex items-center gap-4 mb-8">
                   <div className="p-3 rounded-full bg-gradient-to-r from-primary/20 to-primary/10">
                     <Globe className="h-8 w-8 text-primary" />
@@ -586,7 +599,8 @@ export default function ProfilePage({ params }: ProfilePageProps) {
                     <span
                       key={language}
                       className="group px-6 py-3 bg-gradient-to-r from-muted to-muted/80 text-muted-foreground text-sm rounded-full font-medium border border-muted-foreground/20 hover:border-primary/40 hover:text-primary hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 hover:scale-105"
-                      style={{ animationDelay: `${index * 100}ms` }}>
+                      style={{ animationDelay: `${index * 100}ms` }}
+                    >
                       <Globe className="inline h-4 w-4 mr-2 group-hover:rotate-12 transition-transform duration-300" />
                       {language}
                     </span>
@@ -600,7 +614,8 @@ export default function ProfilePage({ params }: ProfilePageProps) {
                   isVisible
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-10"
-                }`}>
+                }`}
+              >
                 <div className="flex items-center gap-4 mb-8">
                   <div className="p-3 rounded-full bg-gradient-to-r from-primary/20 to-primary/10">
                     <Award className="h-8 w-8 text-primary" />
@@ -614,7 +629,8 @@ export default function ProfilePage({ params }: ProfilePageProps) {
                     <span
                       key={admission}
                       className="group px-6 py-3 bg-gradient-to-r from-primary/5 to-primary/10 text-primary text-sm rounded-full border border-primary/20 font-medium hover:border-primary/40 hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 hover:scale-105"
-                      style={{ animationDelay: `${index * 100}ms` }}>
+                      style={{ animationDelay: `${index * 100}ms` }}
+                    >
                       <Award className="inline h-4 w-4 mr-2 group-hover:rotate-12 transition-transform duration-300" />
                       {admission}
                     </span>

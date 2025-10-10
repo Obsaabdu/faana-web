@@ -39,12 +39,10 @@ export function WaveDivider({
         viewBox="0 0 1440 160"
         preserveAspectRatio="none"
         xmlns="http://www.w3.org/2000/svg"
-        aria-label="Wave divider">
+        aria-label="Wave divider"
+      >
         <title>Wave divider</title>
-        <path
-          d={getWavePath()}
-          className={getColorClass()}
-        />
+        <path d={getWavePath()} className={getColorClass()} />
       </svg>
     </div>
   );

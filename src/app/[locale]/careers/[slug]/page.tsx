@@ -1,25 +1,25 @@
 import {
-  Calendar,
-  MapPin,
-  Briefcase,
-  Clock,
   ArrowLeft,
-  Share2,
+  Briefcase,
+  Building,
+  Calendar,
   CheckCircle,
   ChevronRight,
-  Users,
-  TrendingUp,
+  Clock,
   GraduationCap,
-  Building,
+  MapPin,
+  Share2,
+  TrendingUp,
+  Users,
 } from "lucide-react";
+import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 import { Footer } from "@/components/footer";
 import { Navigation } from "@/components/navigation";
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Link } from "@/i18n/routing";
-import { notFound } from "next/navigation";
+import { Button } from "@/components/ui/button";
 import { positions } from "@/data/positions";
+import { Link } from "@/i18n/routing";
 
 interface PositionDetailPageProps {
   params: {
@@ -30,9 +30,9 @@ interface PositionDetailPageProps {
 
 // Generate static params for all positions and locales
 export async function generateStaticParams() {
-  const locales = ['en', 'am', 'or'];
+  const locales = ["en", "am", "or"];
   const params: { locale: string; slug: string }[] = [];
-  
+
   for (const locale of locales) {
     for (const position of positions) {
       params.push({
@@ -41,7 +41,7 @@ export async function generateStaticParams() {
       });
     }
   }
-  
+
   return params;
 }
 
@@ -100,15 +100,14 @@ export default async function PositionDetailPage({
         <section className="py-8 bg-muted/30">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <nav className="flex items-center gap-2 text-sm text-muted-foreground">
-              <Link
-                href="/"
-                className="hover:text-primary transition-colors">
+              <Link href="/" className="hover:text-primary transition-colors">
                 {t("home")}
               </Link>
               <ChevronRight className="h-4 w-4" />
               <Link
                 href="/careers"
-                className="hover:text-primary transition-colors">
+                className="hover:text-primary transition-colors"
+              >
                 {t("careers")}
               </Link>
               <ChevronRight className="h-4 w-4" />
@@ -122,13 +121,8 @@ export default async function PositionDetailPage({
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto">
               <div className="mb-6">
-                <Button
-                  asChild
-                  variant="ghost"
-                  className="mb-4">
-                  <Link
-                    href="/careers"
-                    className="flex items-center gap-2">
+                <Button asChild variant="ghost" className="mb-4">
+                  <Link href="/careers" className="flex items-center gap-2">
                     <ArrowLeft className="h-4 w-4" />
                     {t("backToCareers")}
                   </Link>
@@ -142,7 +136,8 @@ export default async function PositionDetailPage({
                   )}
                   <Badge
                     variant="secondary"
-                    className="bg-primary/10 text-primary">
+                    className="bg-primary/10 text-primary"
+                  >
                     {position.department}
                   </Badge>
                   <div className="flex items-center gap-2 text-sm text-muted-foreground">
@@ -188,14 +183,12 @@ export default async function PositionDetailPage({
                   <Button
                     variant="outline"
                     size="sm"
-                    className="flex items-center gap-2">
+                    className="flex items-center gap-2"
+                  >
                     <Share2 className="h-4 w-4" />
                     {t("share")}
                   </Button>
-                  <Button
-                    asChild
-                    size="lg"
-                    className="px-8">
+                  <Button asChild size="lg" className="px-8">
                     <Link href="/contact">{t("applyNow")}</Link>
                   </Button>
                 </div>
@@ -222,7 +215,8 @@ export default async function PositionDetailPage({
                   {position.responsibilities.map((responsibility, index) => (
                     <li
                       key={index}
-                      className="flex items-start gap-3 text-muted-foreground">
+                      className="flex items-start gap-3 text-muted-foreground"
+                    >
                       <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
                       <span>{responsibility}</span>
                     </li>
@@ -242,7 +236,8 @@ export default async function PositionDetailPage({
                   {position.qualifications.map((qualification, index) => (
                     <li
                       key={index}
-                      className="flex items-start gap-3 text-muted-foreground">
+                      className="flex items-start gap-3 text-muted-foreground"
+                    >
                       <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
                       <span>{qualification}</span>
                     </li>
@@ -267,11 +262,12 @@ export default async function PositionDetailPage({
                         (qualification, index) => (
                           <li
                             key={index}
-                            className="flex items-start gap-3 text-muted-foreground">
+                            className="flex items-start gap-3 text-muted-foreground"
+                          >
                             <CheckCircle className="h-5 w-5 text-primary/60 mt-0.5 flex-shrink-0" />
                             <span>{qualification}</span>
                           </li>
-                        )
+                        ),
                       )}
                     </ul>
                   </div>
@@ -289,7 +285,8 @@ export default async function PositionDetailPage({
                   {position.whatWeOffer.map((benefit, index) => (
                     <li
                       key={index}
-                      className="flex items-start gap-3 text-muted-foreground">
+                      className="flex items-start gap-3 text-muted-foreground"
+                    >
                       <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
                       <span>{benefit}</span>
                     </li>
@@ -305,17 +302,15 @@ export default async function PositionDetailPage({
                     {t("applicationInstructions")}
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4">
-                    <Button
-                      asChild
-                      size="lg"
-                      className="flex-1">
+                    <Button asChild size="lg" className="flex-1">
                       <Link href="/contact">{t("applyNow")}</Link>
                     </Button>
                     <Button
                       asChild
                       size="lg"
                       variant="outline"
-                      className="flex-1">
+                      className="flex-1"
+                    >
                       <Link href="/careers">{t("viewAllPositions")}</Link>
                     </Button>
                   </div>
@@ -338,16 +333,13 @@ export default async function PositionDetailPage({
                   {relatedPositions.map((relatedPosition) => (
                     <article
                       key={relatedPosition.id}
-                      className="bg-background border rounded-xl p-6 hover:shadow-lg transition-shadow group">
+                      className="bg-background border rounded-xl p-6 hover:shadow-lg transition-shadow group"
+                    >
                       <div className="flex items-center gap-2 mb-4">
-                        <Badge
-                          variant="outline"
-                          className="text-xs">
+                        <Badge variant="outline" className="text-xs">
                           {relatedPosition.department}
                         </Badge>
-                        <Badge
-                          variant="secondary"
-                          className="text-xs">
+                        <Badge variant="secondary" className="text-xs">
                           {relatedPosition.type}
                         </Badge>
                       </div>
@@ -367,10 +359,7 @@ export default async function PositionDetailPage({
                           {relatedPosition.experienceLevel}
                         </div>
                       </div>
-                      <Button
-                        asChild
-                        variant="outline"
-                        className="w-full">
+                      <Button asChild variant="outline" className="w-full">
                         <Link href={`/careers/${relatedPosition.slug}`}>
                           {t("viewDetails")}
                         </Link>
@@ -384,7 +373,7 @@ export default async function PositionDetailPage({
         )}
 
         {/* CTA Section */}
-        <section className="py-20 bg-primary text-primary-foreground">
+        <section className="py-20 bg-primary/20 dark:bg-card text-primary-foreground dark:text-primary">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div className="max-w-2xl mx-auto">
               <Users className="h-16 w-16 mx-auto mb-6 opacity-80" />
@@ -396,13 +385,17 @@ export default async function PositionDetailPage({
                 <Button
                   asChild
                   size="lg"
-                  variant="secondary">
+                  variant="secondary"
+                  className="dark:bg-primary dark:text-primary-foreground"
+                >
                   <Link href="/contact">{t("applyNow")}</Link>
                 </Button>
                 <Button
                   asChild
                   size="lg"
-                  variant="outline">
+                  variant="outline"
+                  className="border-foreground hover:border-primary dark:text-primary dark:hover:border-primary"
+                >
                   <Link href="/about">{t("learnMore")}</Link>
                 </Button>
               </div>

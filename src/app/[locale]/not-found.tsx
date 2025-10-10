@@ -1,13 +1,13 @@
 "use client";
 
+import { motion } from "framer-motion";
+import { AlertCircle, Home, Search } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { Footer } from "@/components/footer";
+import { Navigation } from "@/components/navigation";
+import { BackgroundShapes } from "@/components/ui/background-shapes";
 import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/routing";
-import { Navigation } from "@/components/navigation";
-import { Footer } from "@/components/footer";
-import { Home, Search, AlertCircle } from "lucide-react";
-import { motion } from "framer-motion";
-import { BackgroundShapes } from "@/components/ui/background-shapes";
 
 export default function NotFound() {
   const t = useTranslations("NotFound");
@@ -53,13 +53,15 @@ export default function NotFound() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="max-w-4xl mx-auto text-center">
+              className="max-w-4xl mx-auto text-center"
+            >
               {/* 404 Animation */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.5 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="mb-8">
+                className="mb-8"
+              >
                 <div className="relative inline-block">
                   <div className="text-8xl md:text-9xl font-bold bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
                     404
@@ -96,7 +98,8 @@ export default function NotFound() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
-                className="mb-6">
+                className="mb-6"
+              >
                 <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full text-sm font-medium text-primary mb-6">
                   <AlertCircle className="w-4 h-4 text-yellow-500" />
                   Page Not Found
@@ -107,7 +110,8 @@ export default function NotFound() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
-                className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+                className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent"
+              >
                 {t("title")}
               </motion.h1>
 
@@ -115,7 +119,8 @@ export default function NotFound() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.8 }}
-                className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto mb-8">
+                className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto mb-8"
+              >
                 {t("message")}
               </motion.p>
 
@@ -123,7 +128,8 @@ export default function NotFound() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 1.0 }}
-                className="text-lg text-muted-foreground max-w-2xl mx-auto mb-12">
+                className="text-lg text-muted-foreground max-w-2xl mx-auto mb-12"
+              >
                 {t("description")}
               </motion.p>
 
@@ -132,21 +138,15 @@ export default function NotFound() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 1.2 }}
-                className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <Button
-                  asChild
-                  size="lg"
-                  className="group">
+                className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+              >
+                <Button asChild size="lg" className="group">
                   <Link href="/">
                     <Home className="w-4 h-4 mr-2 group-hover:translate-x-1 transition-transform" />
                     {t("backToHome")}
                   </Link>
                 </Button>
-                <Button
-                  asChild
-                  variant="outline"
-                  size="lg"
-                  className="group">
+                <Button asChild variant="outline" size="lg" className="group">
                   <Link href="/contact">
                     <Search className="w-4 h-4 mr-2 group-hover:rotate-12 transition-transform" />
                     Get Help
@@ -166,7 +166,8 @@ export default function NotFound() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="text-center mb-16">
+              className="text-center mb-16"
+            >
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
                 Looking for Something Specific?
               </h2>
@@ -210,7 +211,8 @@ export default function NotFound() {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
                   whileHover={{ y: -5 }}
-                  className="group">
+                  className="group"
+                >
                   <Link href={link.href}>
                     <div className="p-6 bg-background/50 backdrop-blur-sm border border-border/50 hover:border-primary/20 transition-all duration-300 hover:shadow-lg rounded-xl text-center">
                       <div className="text-3xl mb-3 group-hover:scale-110 transition-transform duration-300">

@@ -1,6 +1,7 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
+import { motion } from "framer-motion";
 import {
   AlertTriangle,
   Clock,
@@ -16,6 +17,7 @@ import * as z from "zod";
 import { Footer } from "@/components/footer";
 import { Navigation } from "@/components/navigation";
 import { Alert, AlertDescription } from "@/components/ui/alert";
+import { BackgroundShapes } from "@/components/ui/background-shapes";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -27,8 +29,6 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { motion } from "framer-motion";
-import { BackgroundShapes } from "@/components/ui/background-shapes";
 
 // Form validation schema
 const contactFormSchema = z.object({
@@ -115,12 +115,14 @@ export default function ContactPage() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="max-w-4xl mx-auto text-center">
+              className="max-w-4xl mx-auto text-center"
+            >
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="mb-6">
+                className="mb-6"
+              >
                 <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full text-sm font-medium text-primary mb-6">
                   <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
                   Ready to help you succeed
@@ -131,7 +133,8 @@ export default function ContactPage() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
-                className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+                className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent"
+              >
                 {t("title")}
               </motion.h1>
 
@@ -139,7 +142,8 @@ export default function ContactPage() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
-                className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto">
+                className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto"
+              >
                 {t("subtitle")}
               </motion.p>
 
@@ -147,18 +151,21 @@ export default function ContactPage() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.8 }}
-                className="flex flex-col sm:flex-row gap-4 justify-center">
+                className="flex flex-col sm:flex-row gap-4 justify-center"
+              >
                 <Button
                   size="lg"
-                  className="text-lg px-8 py-6 bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 shadow-lg hover:shadow-xl transition-all duration-300">
-                  <Phone className="mr-2 h-5 w-5 text-yellow-500" />
+                  className="text-lg px-8 py-6 bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 shadow-lg hover:shadow-xl transition-all duration-300"
+                >
+                  <Phone className="mr-2 h-5 w-5 text-oklch(0.2136 0.0483 257.951)" />
                   Call Now
                 </Button>
                 <Button
                   variant="outline"
                   size="lg"
-                  className="text-lg px-8 py-6 border-2 hover:bg-primary/5 transition-all duration-300">
-                  <Mail className="mr-2 h-5 w-5 text-yellow-500" />
+                  className="text-lg px-8 py-6 border-2 hover:bg-primary/5 transition-all duration-300"
+                >
+                  <Mail className="mr-2 h-5 w-5 text-primary" />
                   Send Email
                 </Button>
               </motion.div>
@@ -332,12 +339,14 @@ export default function ContactPage() {
 
                     <form
                       onSubmit={handleSubmit(onSubmit)}
-                      className="space-y-8">
+                      className="space-y-8"
+                    >
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         <div className="group">
                           <Label
                             htmlFor="name"
-                            className="text-base font-semibold mb-2 block">
+                            className="text-base font-semibold mb-2 block"
+                          >
                             {t("nameLabel")} *
                           </Label>
                           <Input
@@ -356,7 +365,8 @@ export default function ContactPage() {
                         <div className="group">
                           <Label
                             htmlFor="email"
-                            className="text-base font-semibold mb-2 block">
+                            className="text-base font-semibold mb-2 block"
+                          >
                             {t("emailLabel")} *
                           </Label>
                           <Input
@@ -378,7 +388,8 @@ export default function ContactPage() {
                         <div className="group">
                           <Label
                             htmlFor="phone"
-                            className="text-base font-semibold mb-2 block">
+                            className="text-base font-semibold mb-2 block"
+                          >
                             {t("phoneLabel")}
                           </Label>
                           <Input
@@ -398,7 +409,8 @@ export default function ContactPage() {
                         <div className="group">
                           <Label
                             htmlFor="subject"
-                            className="text-base font-semibold mb-2 block">
+                            className="text-base font-semibold mb-2 block"
+                          >
                             {t("subjectLabel")} *
                           </Label>
                           <Input
@@ -418,7 +430,8 @@ export default function ContactPage() {
                       <div className="group">
                         <Label
                           htmlFor="message"
-                          className="text-base font-semibold mb-2 block">
+                          className="text-base font-semibold mb-2 block"
+                        >
                           {t("messageLabel")} *
                         </Label>
                         <Textarea
@@ -440,7 +453,8 @@ export default function ContactPage() {
                           type="submit"
                           size="lg"
                           disabled={isSubmitting}
-                          className="w-full md:w-auto h-14 text-lg font-semibold bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed">
+                          className="w-full md:w-auto h-14 text-lg font-semibold bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                        >
                           {isSubmitting ? (
                             <div className="flex items-center gap-2">
                               <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
@@ -480,14 +494,16 @@ export default function ContactPage() {
               <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
                 <Button
                   size="lg"
-                  className="text-lg px-10 py-6 bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
+                  className="text-lg px-10 py-6 bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
+                >
                   <Phone className="mr-3 h-6 w-6" />
                   Schedule Consultation
                 </Button>
                 <Button
                   variant="outline"
                   size="lg"
-                  className="text-lg px-10 py-6 border-2 hover:bg-primary/5 transition-all duration-300 transform hover:scale-105">
+                  className="text-lg px-10 py-6 border-2 hover:bg-primary/5 dark:hover:text-primary dark:hover:border-primary transition-all duration-300 transform hover:scale-105"
+                >
                   <Mail className="mr-3 h-6 w-6" />
                   Send Quick Message
                 </Button>

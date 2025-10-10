@@ -1,11 +1,11 @@
 "use client";
 
-import { Linkedin, Mail, Sparkles, Users, Award } from "lucide-react";
+import { motion } from "framer-motion";
+import { Award, Linkedin, Mail, Sparkles, Users } from "lucide-react";
+import { useParams, useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
-import { useRouter, useParams } from "next/navigation";
 import { Footer } from "@/components/footer";
 import { Navigation } from "@/components/navigation";
-import { motion } from "framer-motion";
 import { BackgroundShapes } from "@/components/ui/background-shapes";
 
 interface Education {
@@ -369,12 +369,14 @@ export default function TeamPage() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="max-w-4xl mx-auto text-center">
+              className="max-w-4xl mx-auto text-center"
+            >
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="mb-6">
+                className="mb-6"
+              >
                 <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full text-sm font-medium text-primary mb-6">
                   <Sparkles className="w-4 h-4 text-yellow-500" />
                   Legal Excellence
@@ -385,7 +387,8 @@ export default function TeamPage() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
-                className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+                className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent"
+              >
                 {t("title")}
               </motion.h1>
 
@@ -393,7 +396,8 @@ export default function TeamPage() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
-                className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto">
+                className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto"
+              >
                 {t("subtitle")}
               </motion.p>
             </motion.div>
@@ -409,7 +413,8 @@ export default function TeamPage() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="text-center mb-16">
+              className="text-center mb-16"
+            >
               <div className="flex items-center justify-center gap-3 mb-4">
                 <Award className="h-8 w-8 text-yellow-500" />
                 <h2 className="text-3xl md:text-4xl font-bold">
@@ -426,11 +431,13 @@ export default function TeamPage() {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
                   whileHover={{ y: -10 }}
-                  className="group">
+                  className="group"
+                >
                   <button
                     type="button"
                     onClick={() => handleMemberClick(member)}
-                    className="w-full p-8 bg-gradient-to-br from-background via-background to-primary/5 border border-primary/20 rounded-2xl hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 cursor-pointer text-left group-hover:border-primary/40 group-hover:bg-gradient-to-br group-hover:from-primary/5 group-hover:via-background group-hover:to-primary/10">
+                    className="w-full p-8 bg-gradient-to-br from-background via-background to-primary/5 border border-primary/20 rounded-2xl hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 cursor-pointer text-left group-hover:border-primary/40 group-hover:bg-gradient-to-br group-hover:from-primary/5 group-hover:via-background group-hover:to-primary/10"
+                  >
                     {/* Animated avatar */}
                     <div className="relative mb-6">
                       <div className="w-28 h-28 rounded-full bg-gradient-to-br from-primary/20 to-primary/10 flex items-center justify-center mx-auto group-hover:scale-110 transition-transform duration-500">
@@ -457,7 +464,8 @@ export default function TeamPage() {
                         {member.expertise.slice(0, 2).map((skill) => (
                           <span
                             key={skill}
-                            className="px-3 py-1 bg-gradient-to-r from-primary/10 to-primary/5 text-primary text-xs rounded-full font-medium group-hover:from-primary/20 group-hover:to-primary/10 transition-all duration-300">
+                            className="px-3 py-1 bg-gradient-to-r from-primary/10 to-primary/5 text-primary text-xs rounded-full font-medium group-hover:from-primary/20 group-hover:to-primary/10 transition-all duration-300"
+                          >
                             {skill}
                           </span>
                         ))}
@@ -475,7 +483,8 @@ export default function TeamPage() {
                         href={`mailto:${member.email}`}
                         onClick={(e) => e.stopPropagation()}
                         className="p-2 rounded-full bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-110"
-                        aria-label={`Email ${member.name}`}>
+                        aria-label={`Email ${member.name}`}
+                      >
                         <Mail className="h-5 w-5 text-yellow-500" />
                       </a>
                       <a
@@ -484,7 +493,8 @@ export default function TeamPage() {
                         rel="noopener noreferrer"
                         onClick={(e) => e.stopPropagation()}
                         className="p-2 rounded-full bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-110"
-                        aria-label={`LinkedIn profile of ${member.name}`}>
+                        aria-label={`LinkedIn profile of ${member.name}`}
+                      >
                         <Linkedin className="h-5 w-5 text-yellow-500" />
                       </a>
                     </div>
@@ -523,11 +533,13 @@ export default function TeamPage() {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
                   whileHover={{ y: -10 }}
-                  className="group">
+                  className="group"
+                >
                   <button
                     type="button"
                     onClick={() => handleMemberClick(member)}
-                    className="w-full p-8 bg-gradient-to-br from-background via-background to-primary/5 border border-primary/20 rounded-2xl hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 cursor-pointer text-left group-hover:border-primary/40 group-hover:bg-gradient-to-br group-hover:from-primary/5 group-hover:via-background group-hover:to-primary/10">
+                    className="w-full p-8 bg-gradient-to-br from-background via-background to-primary/5 border border-primary/20 rounded-2xl hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 cursor-pointer text-left group-hover:border-primary/40 group-hover:bg-gradient-to-br group-hover:from-primary/5 group-hover:via-background group-hover:to-primary/10"
+                  >
                     {/* Animated avatar */}
                     <div className="relative mb-6">
                       <div className="w-28 h-28 rounded-full bg-gradient-to-br from-primary/20 to-primary/10 flex items-center justify-center mx-auto group-hover:scale-110 transition-transform duration-500">
@@ -554,7 +566,8 @@ export default function TeamPage() {
                         {member.expertise.slice(0, 2).map((skill) => (
                           <span
                             key={skill}
-                            className="px-3 py-1 bg-gradient-to-r from-primary/10 to-primary/5 text-primary text-xs rounded-full font-medium group-hover:from-primary/20 group-hover:to-primary/10 transition-all duration-300">
+                            className="px-3 py-1 bg-gradient-to-r from-primary/10 to-primary/5 text-primary text-xs rounded-full font-medium group-hover:from-primary/20 group-hover:to-primary/10 transition-all duration-300"
+                          >
                             {skill}
                           </span>
                         ))}
@@ -572,7 +585,8 @@ export default function TeamPage() {
                         href={`mailto:${member.email}`}
                         onClick={(e) => e.stopPropagation()}
                         className="p-2 rounded-full bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-110"
-                        aria-label={`Email ${member.name}`}>
+                        aria-label={`Email ${member.name}`}
+                      >
                         <Mail className="h-5 w-5 text-yellow-500" />
                       </a>
                       <a
@@ -581,7 +595,8 @@ export default function TeamPage() {
                         rel="noopener noreferrer"
                         onClick={(e) => e.stopPropagation()}
                         className="p-2 rounded-full bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-110"
-                        aria-label={`LinkedIn profile of ${member.name}`}>
+                        aria-label={`LinkedIn profile of ${member.name}`}
+                      >
                         <Linkedin className="h-5 w-5 text-yellow-500" />
                       </a>
                     </div>
